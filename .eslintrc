@@ -1,0 +1,14 @@
+{
+    "extends": [
+        "plugin:@wordpress/eslint-plugin/esnext",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "es2021": true
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "go-moto/theme",
+  "description": "WordPress theme tooling for go-moto",
+  "type": "wordpress-theme",
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.9",
+    "wp-coding-standards/wpcs": "^3.0",
+    "phpcompatibility/phpcompatibility-wp": "^2.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "php-stubs/wordpress-stubs": "^6.5",
+    "php-stubs/woocommerce-stubs": "^8.0"
+  },
+  "scripts": {
+    "lint": "phpcs -p --standard=WordPress --ignore=vendor/* .",
+    "format": "phpcbf -p --standard=WordPress --ignore=vendor/* ."
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
