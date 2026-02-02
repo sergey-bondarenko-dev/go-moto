@@ -1,13 +1,25 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 
+
 export default defineConfig({
+  root: __dirname,
+  plugins: [
+    {
+      name: 'full-reload-php',
+      handleHotUpdate({ file, server }) {
+        if (file.endsWith('.php')) {
+          server.ws.send({ type: 'full-reload' });
+        }
+      }
+    }
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
     }
   },
-  base: './',
+ //  base: command === 'build' ? './' : '/',
   css: {
     devSourcemap: true
   },
@@ -17,13 +29,17 @@ export default defineConfig({
     manifest: true,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'src/scripts/main.ts')
+        main: 'src/scripts/main.ts',
       }
     }
   },
   server: {
     host: true,
     port: 5173,
-    strictPort: true
+    strictPort: true,
+    cors: {
+      origin: 'https://gomoto.local',
+      credentials: true
+    }
   }
 });
