@@ -35,7 +35,7 @@ if (!is_a($product, WC_Product::class) || !$product->is_visible()) {
 
 			<?php
 
-			$stickerIds = carbon_get_post_meta(get_the_ID(), 'product_stickers');
+			$stickerIds = gomoto_get_post_meta(get_the_ID(), 'product_stickers');
 
 			if (!empty($stickerIds)):
 				$stickerIds = array_slice($stickerIds, 0, 3) ?>
@@ -44,7 +44,7 @@ if (!is_a($product, WC_Product::class) || !$product->is_visible()) {
 
 					<?php foreach ($stickerIds as $stickerId):
 						$stickerText = get_the_title($stickerId);
-						$stickerColor = carbon_get_post_meta($stickerId, 'sticker_color'); ?>
+						$stickerColor = gomoto_get_post_meta($stickerId, 'sticker_color'); ?>
 
 						<span class="product-sticker" style="background-color: <?= $stickerColor ?>;">
 							<?= $stickerText ?>
@@ -62,7 +62,7 @@ if (!is_a($product, WC_Product::class) || !$product->is_visible()) {
 	<p class="fs-14"><?= get_the_excerpt() ?></p>
 	<?php if (!empty($product->get_price())): ?>
 		<div class="product__price">
-			<?php if (carbon_get_post_meta(get_the_ID(), 'product-type') == 'rent') { ?>
+			<?php if (gomoto_get_post_meta(get_the_ID(), 'product-type') == 'rent') { ?>
 				<div class="product-price fs-16"><span class="red"><?php echo $product->get_price(); ?> BYN / сутки</span></div>
 			<?php } else { ?>
 				<div class="product-price fs-16"><span class="red"><?php echo $product->get_price(); ?> BYN</span></div>
@@ -78,3 +78,4 @@ if (!is_a($product, WC_Product::class) || !$product->is_visible()) {
 		</div>
 	<?php endif; ?>
 </li>
+

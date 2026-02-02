@@ -7,7 +7,7 @@ extract($args);
 if (empty($price)) {
 	return;
 }
-$discounts = carbon_get_theme_option('rent_discounts');
+$discounts = gomoto_get_theme_option('rent_discounts');
 
 if (empty($discounts)) {
     $discounts = [
@@ -45,4 +45,5 @@ if (empty($discounts)) {
 		Скидки суммируются с картами <a href="/gomoto-club/" target="_blank">GoMoto Club</a>
 	</p>
 </div>
+
 

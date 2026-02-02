@@ -10,7 +10,7 @@ if ($product) {
     gomoto_render_schema($schema);
 }
 
-$product_type = carbon_get_the_post_meta('product-type');
+$product_type = gomoto_get_the_post_meta('product-type');
 
 ?>
 
@@ -89,7 +89,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 								</div>
 							</div>
 							<div class="product__content mt20">
-								<?= apply_filters('the_content', carbon_get_the_post_meta('additional-text')); ?>
+								<?= apply_filters('the_content', gomoto_get_the_post_meta('additional-text')); ?>
 							</div>
 
 
@@ -118,7 +118,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 								
 								<?php endif; ?>
 								
-								<?php if (!empty($text = carbon_get_the_post_meta('price-text'))) { ?>
+								<?php if (!empty($text = gomoto_get_the_post_meta('price-text'))) { ?>
 								<div class="product_price-included bg-navy fs-14"><?php echo $text; ?></div>
 								<?php } ?>
 								
@@ -143,7 +143,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 													</g>
 												</svg></div>
 											<div class="header-content-text">
-												<?php foreach (carbon_get_theme_option('phones') as $phone) { ?>
+												<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
 													<a
 													   href="tel:<?php echo $phone['phone']; ?>"><b><?php echo $phone['phone']; ?></b></a>
 												<?php } ?>
@@ -179,7 +179,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 	<section class="product__content product__content--mobile pb-60" style="display: none">
 		<div class="container">
 			<div class="product__content mt20">
-				<?= apply_filters('the_content', carbon_get_the_post_meta('additional-text')); ?>
+				<?= apply_filters('the_content', gomoto_get_the_post_meta('additional-text')); ?>
 			</div>
 		</div>
 	</section>
@@ -211,7 +211,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 							</div>
 						</div>
 						<div class="col col--2">
-							<?php if ((!empty(carbon_get_the_post_meta('razgon'))) || (!empty(carbon_get_the_post_meta('max-skorost')))) { ?>
+							<?php if ((!empty(gomoto_get_the_post_meta('razgon'))) || (!empty(gomoto_get_the_post_meta('max-skorost')))) { ?>
 								<div class="details__wrapper">
 									<h5 class="flex ali-c gap-10">
 										<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -347,13 +347,13 @@ $product_type = carbon_get_the_post_meta('product-type');
 										Скорость
 
 									</h5>
-									<?php if (!empty($detail1 = carbon_get_the_post_meta('razgon'))) { ?>
+									<?php if (!empty($detail1 = gomoto_get_the_post_meta('razgon'))) { ?>
 										<div class="detail flex ali-c gap-10">
 											<span>Разгон 0-100 км/ч</span>
 											<span><?php echo $detail1; ?></span>
 										</div>
 									<?php } ?>
-									<?php if (!empty($detail2 = carbon_get_the_post_meta('max-skorost'))) { ?>
+									<?php if (!empty($detail2 = gomoto_get_the_post_meta('max-skorost'))) { ?>
 										<div class="detail flex ali-c gap-10">
 											<span>Максимальная скорость</span>
 											<span><?php echo $detail2; ?></span>
@@ -361,7 +361,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 									<?php } ?>
 								</div>
 							<?php } ?>
-							<?php if ((!empty($detail3 = carbon_get_the_post_meta('prochee-1'))) || (!empty($detail3 = carbon_get_the_post_meta('prochee-2'))) || (!empty($detail3 = carbon_get_the_post_meta('prochee-3'))) || (!empty($detail3 = carbon_get_the_post_meta('prochee-4')))) { ?>
+							<?php if ((!empty($detail3 = gomoto_get_the_post_meta('prochee-1'))) || (!empty($detail3 = gomoto_get_the_post_meta('prochee-2'))) || (!empty($detail3 = gomoto_get_the_post_meta('prochee-3'))) || (!empty($detail3 = gomoto_get_the_post_meta('prochee-4')))) { ?>
 								<div class="details__wrapper">
 									<h5 class="flex ali-c gap-10">
 										<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -413,25 +413,25 @@ $product_type = carbon_get_the_post_meta('product-type');
 										</svg>
 										Прочее
 									</h5>
-									<?php if (!empty($detail3 = carbon_get_the_post_meta('prochee-1'))) { ?>
+									<?php if (!empty($detail3 = gomoto_get_the_post_meta('prochee-1'))) { ?>
 										<div class="detail flex ali-c gap-10">
 											<span>Сцепление</span>
 											<span><?php echo $detail3; ?></span>
 										</div>
 									<?php } ?>
-									<?php if (!empty($detail4 = carbon_get_the_post_meta('prochee-2'))) { ?>
+									<?php if (!empty($detail4 = gomoto_get_the_post_meta('prochee-2'))) { ?>
 										<div class="detail flex ali-c gap-10">
 											<span>КПП</span>
 											<span><?php echo $detail4; ?></span>
 										</div>
 									<?php } ?>
-									<?php if (!empty($detail5 = carbon_get_the_post_meta('prochee-3'))) { ?>
+									<?php if (!empty($detail5 = gomoto_get_the_post_meta('prochee-3'))) { ?>
 										<div class="detail flex ali-c gap-10">
 											<span>Привод</span>
 											<span><?php echo $detail5; ?></span>
 										</div>
 									<?php } ?>
-									<?php if (!empty($detail6 = carbon_get_the_post_meta('prochee-4'))) { ?>
+									<?php if (!empty($detail6 = gomoto_get_the_post_meta('prochee-4'))) { ?>
 										<div class="detail flex ali-c gap-10">
 											<span>Топливная система</span>
 											<span><?php echo $detail6; ?></span>
@@ -468,7 +468,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 						<div class="flex gap-10 ali-c body-4">
 							Скидки суммируются с картой постоянного клиента
 						</div>
-						<?php foreach (carbon_get_post_meta(2, 'seo-discounts') as $li) { ?>
+						<?php foreach (gomoto_get_post_meta(2, 'seo-discounts') as $li) { ?>
 							<div class="flex gap-10 ali-c grey uppercase body-4">
 								<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
 									 xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
@@ -596,7 +596,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 								</svg></div>
 							<div class="header-content-text">
 								<span>Телефоны:</span>
-								<?php foreach (carbon_get_theme_option('phones') as $phone) { ?>
+								<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
 									<a href="tel:<?php echo $phone['phone']; ?>"><?php echo $phone['phone']; ?></a>
 								<?php } ?>
 							</div>
@@ -622,7 +622,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 								</svg></div>
 							<div class="header-content-text">
 								<span>Время работы:</span>
-								<?php echo carbon_get_theme_option('scedule'); ?>
+								<?php echo gomoto_get_theme_option('scedule'); ?>
 							</div>
 						</div>
 
@@ -641,7 +641,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 								</svg></div>
 							<div class="header-content-text">
 								<span>Адрес:</span>
-								<?php echo carbon_get_theme_option('address'); ?>
+								<?php echo gomoto_get_theme_option('address'); ?>
 							</div>
 						</div>
 
@@ -658,7 +658,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 
 	<?php
 
-	$online_booking_form = carbon_get_the_post_meta('online-booking-form');
+	$online_booking_form = gomoto_get_the_post_meta('online-booking-form');
 
 	if ($online_booking_form):
 
@@ -722,7 +722,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 										</h3>
 										<p class="fs-14"><?= get_the_excerpt($prod); ?></p>
 										<div class="product__price">
-											<?php if (carbon_get_post_meta($prod, 'product-type') == 'rent') { ?>
+											<?php if (gomoto_get_post_meta($prod, 'product-type') == 'rent') { ?>
 												<div class="product-price fs-16"><span
 														  class="red"><?php echo $_product->get_price(); ?> BYN / сутки</span>
 												</div>
@@ -768,7 +768,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 																																																									<h3 class="fs-22"><a href="<?php  echo get_the_permalink(get_the_ID()); ?>"><?php echo  $_product->get_title(); ?></a></h3>
 																																																									<p class="fs-16"><?php echo get_the_excerpt(get_the_ID()); ?></p>
 																																																									<div class="product__price">
-																																																										<?php if ( carbon_get_post_meta( $prod['id'],'product-type') == 'rent') { ?>
+																																																										<?php if ( gomoto_get_post_meta( $prod['id'],'product-type') == 'rent') { ?>
 																																																								<div class="product-price fs-16"><b>Стоимость: <span class="red"><?php echo $_product->get_price(); ?> рублей / сутки</span> </b></div>
 																																																								<?php } else { ?>
 																																																								<div class="product-price fs-16"><b>Стоимость: <span class="red"><?php echo $_product->get_price(); ?> рублей </span> </b></div>
@@ -802,3 +802,4 @@ $product_type = carbon_get_the_post_meta('product-type');
 
 <?php
 get_footer();
+

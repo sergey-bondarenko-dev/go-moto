@@ -73,3 +73,19 @@ function theme_preload_product_main_image() {
 	}
 }
 add_action( 'wp_head', 'theme_preload_product_main_image', 1 );
+
+add_action('wp_enqueue_scripts', function () {
+	if (is_admin()) {
+		return;
+	}
+
+	// Корзины нет — отключаем только скрипты добавления в корзину.
+	wp_dequeue_script('wc-add-to-cart');
+	wp_dequeue_script('wc-cart-fragments');
+
+	// Отключаем все стили WooCommerce на фронтенде.
+	wp_dequeue_style('woocommerce-general');
+	wp_dequeue_style('woocommerce-layout');
+	wp_dequeue_style('woocommerce-smallscreen');
+	wp_dequeue_style('woocommerce-inline');
+}, 99);

@@ -1,0 +1,65 @@
+.scroll-top {
+	$size: 48px;
+	$offset: 6px;
+	$shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 999;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(8px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
+
+	&.is-visible {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+
+	&__btn {
+		position: relative;
+		width: $size;
+		height: $size;
+		border-radius: 50%;
+		border: 0;
+		padding: 0;
+		background: var(--red);
+		color: var(--white);
+		display: grid;
+		place-items: center;
+		cursor: pointer;
+		box-shadow: $shadow;
+		transition: transform 0.15s ease;
+
+		&:hover {
+			transform: translateY(-2px);
+		}
+	}
+
+	&__circle {
+		position: absolute;
+		inset: -#{$offset};
+		width: calc(100% + #{$offset * 2});
+		height: calc(100% + #{$offset * 2});
+		transform: rotate(-90deg);
+	}
+
+	&__path {
+		fill: none;
+		stroke: var(--red);
+		stroke-width: 4;
+	}
+
+	&__icon {
+		width: 18px;
+		height: 18px;
+		display: block;
+	}
+
+	@media screen and (max-width: 768px) {
+		right: 16px;
+		bottom: 16px;
+	}
+}

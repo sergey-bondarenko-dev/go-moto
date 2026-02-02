@@ -1,9 +1,9 @@
 <?php
 
 function gomoto_get_theme_contacts(): array {
-    $email = carbon_get_theme_option('email');
-    $address = carbon_get_theme_option('address');
-    $phones = carbon_get_theme_option('phones') ?: [];
+    $email = gomoto_get_theme_option('email');
+    $address = gomoto_get_theme_option('address');
+    $phones = gomoto_get_theme_option('phones') ?: [];
 
     $phoneList = array_values(array_filter(array_column($phones, 'phone')));
     $phoneMain = $phoneList[0] ?? '+375293842436';
@@ -25,3 +25,4 @@ function gomoto_render_schema(array $schema): void {
         wp_json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) .
         '</script>';
 }
+

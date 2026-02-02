@@ -25,7 +25,7 @@ get_header('shop');
 		<div class="container">
 			<?php /* if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb( '<div class="breadcrumbs">','</div>' ); } */ ?>
 			<h1>
-				<?php if (!empty($text = carbon_get_term_meta( get_queried_object()->term_id, 'category-title'))): ?>
+				<?php if (!empty($text = gomoto_get_term_meta( get_queried_object()->term_id, 'category-title'))): ?>
 					<?= $text; ?>
 				<?php else: ?>
 					<?php wp_title(); ?>
@@ -123,3 +123,4 @@ get_header('shop');
 <?php
 
 get_footer('shop');
+

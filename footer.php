@@ -43,11 +43,12 @@
 
 		</div>
 		<div class="footer__row">
-			<div><?php echo carbon_get_theme_option('copyright'); ?></div>
-			<div><?php echo carbon_get_theme_option('dev'); ?></div>
+			<div><?php echo gomoto_get_theme_option('copyright'); ?></div>
+			<div><?php echo gomoto_get_theme_option('dev'); ?></div>
 		</div>
 	</div>
 </footer><!-- #colophon -->
+<?php get_template_part('template-parts/scroll-top'); ?>
 </div><!-- #page -->
 <?php wp_footer(); ?>
 <style>
@@ -64,3 +65,4 @@
 </body>
 
 </html>
+

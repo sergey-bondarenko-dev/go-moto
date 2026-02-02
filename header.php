@@ -41,13 +41,22 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
+		<?php
+		$gomoto_custom_logo = get_custom_logo();
+		$gomoto_primary_menu = wp_nav_menu(
+			array(
+				'theme_location' => 'menu-1',
+				'echo' => false,
+			)
+		);
+		?>
 		<div class="header-wrapper">
 			<header id="masthead" class="site-header bg-navy">
 				<div class="container">
 					<div class="flex jc-spb ali-c">
 
 						<div class="header-item site-branding">
-							<?php echo get_custom_logo(); ?>
+							<?php echo $gomoto_custom_logo; ?>
 						</div>
 						<button class="site-burger" type="button" aria-label="Открыть меню">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -69,7 +78,7 @@
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php echo carbon_get_theme_option('address'); ?>
+									<?php echo gomoto_get_theme_option('address'); ?>
 								</div>
 							</div>
 						</div>
@@ -86,7 +95,7 @@
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php echo carbon_get_theme_option('scedule'); ?>
+									<?php echo gomoto_get_theme_option('scedule'); ?>
 								</div>
 							</div>
 						</div>
@@ -99,11 +108,11 @@
 										<g>
 											<path
 												d="M22.079 17.835c-1.548-1.324-3.119-2.126-4.648-.804l-.913.799c-.668.58-1.91 3.29-6.712-2.234-4.801-5.517-1.944-6.376-1.275-6.951l.918-.8c1.521-1.325.947-2.993-.15-4.71l-.662-1.04C7.535.382 6.335-.743 4.81.58l-.824.72c-.674.491-2.558 2.087-3.015 5.119-.55 3.638 1.185 7.804 5.16 12.375 3.97 4.573 7.857 6.87 11.539 6.83 3.06-.033 4.908-1.675 5.486-2.272l.827-.721c1.521-1.322.576-2.668-.973-3.995l-.931-.801z"
-												style="" fill="#030104" data-original="#030104"></path>
+												fill="#030104" data-original="#030104"></path>
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php foreach (carbon_get_theme_option('phones') as $phone) { ?>
+									<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
 										<a
 											href="tel:<?php echo preg_replace('/[^0-9.]+/', '', $phone['phone']); ?>"><?php echo $phone['phone']; ?></a>
 									<?php } ?>
@@ -126,19 +135,13 @@
 			</header><!-- #masthead -->
 			<div class="desktop-menu">
 				<div class="container">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-						)
-					);
-					?>
+					<?php echo $gomoto_primary_menu; ?>
 				</div>
 			</div>
 			<div class="mobile-menu bg-navy">
 				<div class="mobile-menu-top">
 					<div class="mobile-menu-logo">
-						<?php echo get_custom_logo(); ?>
+						<?php echo $gomoto_custom_logo; ?>
 					</div>
 					<button class="site-burger -close" type="button" aria-label="Закрыть меню">
 						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -149,13 +152,7 @@
 				</div>
 				
 				<div class="mobile-nav">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'menu-1',
-						)
-					);
-					?>
+					<?php echo $gomoto_primary_menu; ?>
 				</div>
 
 				<div class="header-contact">
@@ -166,11 +163,11 @@
 							<g>
 								<path
 									d="M22.079 17.835c-1.548-1.324-3.119-2.126-4.648-.804l-.913.799c-.668.58-1.91 3.29-6.712-2.234-4.801-5.517-1.944-6.376-1.275-6.951l.918-.8c1.521-1.325.947-2.993-.15-4.71l-.662-1.04C7.535.382 6.335-.743 4.81.58l-.824.72c-.674.491-2.558 2.087-3.015 5.119-.55 3.638 1.185 7.804 5.16 12.375 3.97 4.573 7.857 6.87 11.539 6.83 3.06-.033 4.908-1.675 5.486-2.272l.827-.721c1.521-1.322.576-2.668-.973-3.995l-.931-.801z"
-									style="" fill="#030104" data-original="#030104"></path>
+									fill="#030104" data-original="#030104"></path>
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php foreach (carbon_get_theme_option('phones') as $phone) { ?>
+						<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
 							<a
 								href="tel:<?php echo preg_replace('/[^0-9.]+/', '', $phone['phone']); ?>"><?php echo $phone['phone']; ?></a>
 						<?php } ?>
@@ -187,7 +184,7 @@
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php echo carbon_get_theme_option('address'); ?>
+						<?php echo gomoto_get_theme_option('address'); ?>
 					</div>
 				</div>
 				<div class="header-contact">
@@ -202,17 +199,18 @@
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php echo carbon_get_theme_option('scedule'); ?>
+						<?php echo gomoto_get_theme_option('scedule'); ?>
 					</div>
 				</div>
 
 				<div class="header-contact">
 					<div class="socials">
-						<?php foreach (carbon_get_theme_option('socials') as $social) { ?>
+						<?php foreach (gomoto_get_theme_option('socials') as $social) { ?>
 							<a href="<?php echo $social['link']; ?>" target="_blank"><?php echo $social['icon']; ?></a>
 						<?php } ?>
 					</div>
 				</div>
 			</div>
 		</div>
+
 

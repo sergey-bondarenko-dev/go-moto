@@ -1,5 +1,6 @@
 import '../styles/main.scss';
 import { initMobileMenu } from './modules/menu';
+import { initScrollTop } from './modules/scroll-top';
 
 if (document.querySelector('[data-fancybox]')) {
 	import('./modules/fancybox').then(({ initFancybox }) => {
@@ -26,3 +27,4 @@ if (document.querySelector('.counter-number')) {
 }
 
 initMobileMenu();
+initScrollTop();

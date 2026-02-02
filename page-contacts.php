@@ -18,12 +18,12 @@ get_header();
 			<div class="page">
 				<div class="page-content">
 					<div class="section-title">
-						<?php if (!empty($title = carbon_get_the_post_meta('contacts-contacts-title'))) { ?>
+						<?php if (!empty($title = gomoto_get_the_post_meta('contacts-contacts-title'))) { ?>
 							<h2 class="section-title__title">
 								<?php echo $title; ?>
 							</h2>
 						<?php } ?>
-						<?php if (!empty($subtitle = carbon_get_the_post_meta('contacts-contacts-subtitle'))) { ?>
+						<?php if (!empty($subtitle = gomoto_get_the_post_meta('contacts-contacts-subtitle'))) { ?>
 							<p class="section-title__subtitle body-3">
 								<?php echo $subtitle; ?>
 							</p>
@@ -109,7 +109,7 @@ get_header();
 								</div>
 								<div class="header-content-text">
 									<span>Телефоны:</span>
-									<?php foreach (carbon_get_theme_option('phones') as $phone) { ?>
+									<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
 										<a href="tel:<?php echo $phone['phone']; ?>"><?php echo $phone['phone']; ?></a>
 									<?php } ?>
 								</div>
@@ -127,7 +127,7 @@ get_header();
 									</svg></div>
 								<div class="header-content-text">
 									<span>Адрес:</span>
-									<?php echo carbon_get_theme_option('address'); ?>
+									<?php echo gomoto_get_theme_option('address'); ?>
 								</div>
 							</div>
 							
@@ -145,7 +145,7 @@ get_header();
 									</svg></div>
 								<div class="header-content-text">
 									<span>Координаты:</span>
-									<?php echo carbon_get_theme_option('coord'); ?>
+									<?php echo gomoto_get_theme_option('coord'); ?>
 								</div>
 							</div>
 							
@@ -163,7 +163,7 @@ get_header();
 									</svg></div>
 								<div class="header-content-text">
 									<span>График работы:</span>
-									<?php echo carbon_get_theme_option('scedule'); ?>
+									<?php echo gomoto_get_theme_option('scedule'); ?>
 								</div>
 							</div>
 
@@ -184,7 +184,7 @@ get_header();
 									</svg></div>
 								<div class="header-content-text">
 									<span>Email:</span>
-									<?php echo carbon_get_theme_option('email'); ?>
+									<?php echo gomoto_get_theme_option('email'); ?>
 								</div>
 							</div>
 
@@ -204,7 +204,7 @@ get_header();
 									</svg></div>
 								<div class="header-content-text">
 									<span>Яндекс карты:</span>
-									<a href="<?php echo carbon_get_theme_option('yandex-link'); ?>"
+									<a href="<?php echo gomoto_get_theme_option('yandex-link'); ?>"
 										target="_blank">GoMoto в Яндекс.Картах</a>
 								</div>
 							</div>
@@ -224,7 +224,7 @@ get_header();
 									</svg></div>
 								<div class="header-content-text">
 									<span>Построить маршрут:</span>
-									<a href="<?php echo carbon_get_theme_option('yandex-route'); ?>" target="_blank">Еду
+									<a href="<?php echo gomoto_get_theme_option('yandex-route'); ?>" target="_blank">Еду
 										в GoMoto</a>
 								</div>
 							</div>
@@ -277,13 +277,13 @@ get_header();
 						</div>
 						<div class="contacts-additional">
 							<div class="content">
-								<?= apply_filters('the_content', carbon_get_theme_option('additional-text1')); ?>
+								<?= apply_filters('the_content', gomoto_get_theme_option('additional-text1')); ?>
 							</div>
 							<div class="content">
-								<?= apply_filters('the_content', carbon_get_theme_option('additional-text2')); ?>
+								<?= apply_filters('the_content', gomoto_get_theme_option('additional-text2')); ?>
 							</div>
 							<div class="content">
-								<?= apply_filters('the_content', carbon_get_theme_option('additional-text3')); ?>
+								<?= apply_filters('the_content', gomoto_get_theme_option('additional-text3')); ?>
 							</div>
 
 							<script>
@@ -324,7 +324,7 @@ get_header();
 						</div>
 						<!-- <div class="col">
 							<div class="contacts__gallery">
-								<?php $slides = carbon_get_post_meta(get_the_ID(), 'contacts-gallery');
+								<?php $slides = gomoto_get_post_meta(get_the_ID(), 'contacts-gallery');
 								foreach ($slides as $slide):
 									?>
 									<a href="<?php echo wp_get_attachment_image_url($slide, 'full'); ?>" data-fancybox><img
@@ -335,7 +335,7 @@ get_header();
 						</div> -->
 					</div>
 					<div class="contacts__map pt-60">
-						<?php echo carbon_get_theme_option('yandex-map'); ?>
+						<?php echo gomoto_get_theme_option('yandex-map'); ?>
 					</div>
 				</div>
 			</div>
@@ -356,3 +356,4 @@ get_header();
 
 <?php
 get_footer();
+

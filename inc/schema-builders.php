@@ -41,12 +41,12 @@ function gomoto_get_product_schema(WC_Product $product, array $contacts): array 
 
     // Доп. свойства
     $props = [
-        'Разгон 0–100 км/ч' => carbon_get_post_meta($post_id, 'razgon'),
-        'Максимальная скорость' => carbon_get_post_meta($post_id, 'max-skorost'),
-        'Сцепление' => carbon_get_post_meta($post_id, 'prochee-1'),
-        'КПП' => carbon_get_post_meta($post_id, 'prochee-2'),
-        'Привод' => carbon_get_post_meta($post_id, 'prochee-3'),
-        'Топливная система' => carbon_get_post_meta($post_id, 'prochee-4'),
+        'Разгон 0–100 км/ч' => gomoto_get_post_meta($post_id, 'razgon'),
+        'Максимальная скорость' => gomoto_get_post_meta($post_id, 'max-skorost'),
+        'Сцепление' => gomoto_get_post_meta($post_id, 'prochee-1'),
+        'КПП' => gomoto_get_post_meta($post_id, 'prochee-2'),
+        'Привод' => gomoto_get_post_meta($post_id, 'prochee-3'),
+        'Топливная система' => gomoto_get_post_meta($post_id, 'prochee-4'),
     ];
 
     $schema['additionalProperty'] = array_reduce(array_keys($props), function($carry, $key) use ($props) {
@@ -109,3 +109,4 @@ function gomoto_get_publisher_schema(array $contacts): array {
         ],
     ];
 }
+

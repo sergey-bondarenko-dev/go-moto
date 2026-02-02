@@ -3,8 +3,8 @@
 /* Template Name: Главная */
 get_header();
 
-$rating_value = carbon_get_theme_option('rating_value');
-$rating_count = carbon_get_theme_option('rating_count');
+$rating_value = gomoto_get_theme_option('rating_value');
+$rating_count = gomoto_get_theme_option('rating_count');
 
 $schema = [
     '@context' => 'https://schema.org',
@@ -118,7 +118,7 @@ if ($rating_value && $rating_count) {
 
 				<ul class="products">
 					<?php $n = 0;
-					$products = carbon_get_the_post_meta('offers');
+					$products = gomoto_get_the_post_meta('offers');
 					foreach ($products as $prod) {
 						$_product = wc_get_product($prod['id']);
 						$n++;
@@ -133,7 +133,7 @@ if ($rating_value && $rating_count) {
 
 								<?php
 
-								$stickerIds = carbon_get_post_meta($prod['id'], 'product_stickers');
+								$stickerIds = gomoto_get_post_meta($prod['id'], 'product_stickers');
 
 								if (!empty($stickerIds)):
 									$stickerIds = array_slice($stickerIds, 0, 3) ?>
@@ -142,7 +142,7 @@ if ($rating_value && $rating_count) {
 
 										<?php foreach ($stickerIds as $stickerId):
 											$stickerText = get_the_title($stickerId);
-											$stickerColor = carbon_get_post_meta($stickerId, 'sticker_color'); ?>
+											$stickerColor = gomoto_get_post_meta($stickerId, 'sticker_color'); ?>
 
 											<span class="product-sticker" style="background-color: <?= $stickerColor ?>;">
 												<?= $stickerText ?>
@@ -159,7 +159,7 @@ if ($rating_value && $rating_count) {
 							</h3>
 							<p class="fs-14"><?php echo get_the_excerpt($prod['id']); ?></p>
 							<div class="product__price">
-								<?php if (carbon_get_post_meta($prod['id'], 'product-type') == 'rent') { ?>
+								<?php if (gomoto_get_post_meta($prod['id'], 'product-type') == 'rent') { ?>
 									<div class="product-price fs-16"><span class="red"><?php echo $_product->get_price(); ?> BYN
 											/ сутки</span>
 									</div>
@@ -208,7 +208,7 @@ if ($rating_value && $rating_count) {
 				<ul class="categories__list">
 	<?php foreach ( $subcategories as $subcategory ): ?>
 		<?php
-		$icon_id = carbon_get_term_meta( $subcategory->term_id, 'product_category_icon' );
+		$icon_id = gomoto_get_term_meta( $subcategory->term_id, 'product_category_icon' );
 		$icon_html = '';
 
 		if ( $icon_id ) {
@@ -240,15 +240,15 @@ if ($rating_value && $rating_count) {
 		<div class="container">
 			<div class="row flex ali-c">
 				<div class="col col--2">
-					<?php echo wp_get_attachment_image(carbon_get_the_post_meta('sert-image'), 'full'); ?>
+					<?php echo wp_get_attachment_image(gomoto_get_the_post_meta('sert-image'), 'full'); ?>
 				</div>
 				<div class="col col--2 flex ali-c fd-c jc-c">
 					<div class="sert__content bg-yellow p-30">
 						<h3>
-							<?php echo carbon_get_the_post_meta('sert-title'); ?>
+							<?php echo gomoto_get_the_post_meta('sert-title'); ?>
 						</h3>
 						<div class="body-4">
-							<?php echo apply_filters('the_content', carbon_get_the_post_meta('sert-text')); ?>
+							<?php echo apply_filters('the_content', gomoto_get_the_post_meta('sert-text')); ?>
 						</div>
 					</div>
 
@@ -260,7 +260,7 @@ if ($rating_value && $rating_count) {
 	<section class="front-products woocommerce pt-60 pb-60">
 		<div class="container">
 			<div class="section-title">
-				<?php if (!empty($offers_title = carbon_get_the_post_meta('offers-2-title'))) { ?>
+				<?php if (!empty($offers_title = gomoto_get_the_post_meta('offers-2-title'))) { ?>
 					<h2 class="section-title__title">
 						<?php echo $offers_title; ?>
 					</h2>
@@ -270,7 +270,7 @@ if ($rating_value && $rating_count) {
 				<div class="products columns-3">
 					<div class="swiper gear">
 						<div class="swiper-wrapper">
-							<?php $products = carbon_get_the_post_meta('offers-2');
+							<?php $products = gomoto_get_the_post_meta('offers-2');
 							foreach ($products as $prod) {
 								$_product = wc_get_product($prod['id']);
 								?>
@@ -294,7 +294,7 @@ if ($rating_value && $rating_count) {
 													Бесплатно
 												</span>
 											</div>
-										<?php elseif (carbon_get_post_meta($prod['id'], 'product-type') == 'rent'): ?>
+										<?php elseif (gomoto_get_post_meta($prod['id'], 'product-type') == 'rent'): ?>
 											<div class="product-price fs-16">
 												<span class="red">
 													<?php echo $_product->get_price(); ?> BYN / сутки
@@ -330,22 +330,22 @@ if ($rating_value && $rating_count) {
 		</div>
 	</section>
 	<section class="banner pt-120 pb-120"
-			 style="background-image:url(<?php echo wp_get_attachment_image_url(carbon_get_the_post_meta('banner-image'), 'full'); ?>)">
+			 style="background-image:url(<?php echo wp_get_attachment_image_url(gomoto_get_the_post_meta('banner-image'), 'full'); ?>)">
 		<div class="container">
 			<div class="banner-content bg-red">
 				<h3>
-					<?php echo carbon_get_the_post_meta('banner-title'); ?>
+					<?php echo gomoto_get_the_post_meta('banner-title'); ?>
 				</h3>
-				<?php echo apply_filters('the_content', carbon_get_the_post_meta('banner-text')); ?>
+				<?php echo apply_filters('the_content', gomoto_get_the_post_meta('banner-text')); ?>
 			</div>
 		</div>
 	</section>
 
-	<?php if (!empty($questions = carbon_get_the_post_meta('question'))) { ?>
+	<?php if (!empty($questions = gomoto_get_the_post_meta('question'))) { ?>
 		<section class="questions pt-60 pb-60">
 			<div class="container">
 				<div class="section-title">
-					<?php if (!empty($questions_title = carbon_get_the_post_meta('question-title'))) { ?>
+					<?php if (!empty($questions_title = gomoto_get_the_post_meta('question-title'))) { ?>
 						<h2 class="section-title__title">
 							<?php echo $questions_title; ?>
 						</h2>
@@ -418,7 +418,7 @@ if ($rating_value && $rating_count) {
 						</svg>
 						Скидки
 					</h4>
-					<?php foreach (carbon_get_the_post_meta('seo-discounts') as $li) { ?>
+					<?php foreach (gomoto_get_the_post_meta('seo-discounts') as $li) { ?>
 						<div class="flex gap-10 ali-c grey uppercase body-4">
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
 								width="512" height="512" x="0" y="0" viewBox="0 0 60 60"
@@ -468,7 +468,7 @@ if ($rating_value && $rating_count) {
 						</svg>
 						Плюсы
 					</h4>
-					<?php foreach (carbon_get_the_post_meta('seo-advantages') as $li) { ?>
+					<?php foreach (gomoto_get_the_post_meta('seo-advantages') as $li) { ?>
 						<div class="flex gap-10 ali-c grey uppercase body-4">
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
 								width="512" height="512" x="0" y="0" viewBox="0 0 330 330"
@@ -502,7 +502,7 @@ if ($rating_value && $rating_count) {
 						</svg>
 						В аренду мотоцикла входит
 					</h4>
-					<?php foreach (carbon_get_the_post_meta('seo-included') as $li) { ?>
+					<?php foreach (gomoto_get_the_post_meta('seo-included') as $li) { ?>
 						<div class="flex gap-10 ali-c grey uppercase body-4">
 							<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
 								width="512" height="512" x="0" y="0" viewBox="0 0 214.27 214.27"
@@ -521,9 +521,9 @@ if ($rating_value && $rating_count) {
 					<?php } ?>
 				</div>
 			</div-->
-			<?php if (trim(carbon_get_the_post_meta('seo-text'))): ?>
+			<?php if (trim(gomoto_get_the_post_meta('seo-text'))): ?>
 				<div class="seo__text pt-30">
-					<?= apply_filters('the_content', carbon_get_the_post_meta('seo-text')) ?>
+					<?= apply_filters('the_content', gomoto_get_the_post_meta('seo-text')) ?>
 				</div>
 			<?php endif; ?>
 		</div>
@@ -535,7 +535,7 @@ if ($rating_value && $rating_count) {
 			<div class="row">
 				<?php
 				$class = "bg-red";
-				foreach (carbon_get_the_post_meta('directions') as $direction) { ?>
+				foreach (gomoto_get_the_post_meta('directions') as $direction) { ?>
 					<div class="col col--2">
 						<div class="directions__item <?php echo $class;
 						$class = "bg-yellow"; ?> p-40 flex ali-c gap-20">
@@ -621,11 +621,11 @@ if ($rating_value && $rating_count) {
 		</div>
 	</section>
 
-	<?php if (!empty($slides = carbon_get_post_meta(get_the_ID(), 'front-gallery'))) { ?>
+	<?php if (!empty($slides = gomoto_get_post_meta(get_the_ID(), 'front-gallery'))) { ?>
 		<section class="gallery bg-navy pt-60 pb-60">
 			<div class="container">
 				<div class="section-title">
-					<?php if (!empty($offer_title = carbon_get_the_post_meta('gallery-title'))) { ?>
+					<?php if (!empty($offer_title = gomoto_get_the_post_meta('gallery-title'))) { ?>
 						<h2 class="section-title__title">
 							<?php echo $offer_title; ?>
 						</h2>
@@ -670,21 +670,21 @@ if ($rating_value && $rating_count) {
 			<div class="section-content">
 				<div class="row ali-c jc-sa">
 					<div class="col flex jc-c">
-						<a href="<?php echo carbon_get_theme_option('feedback-google'); ?>" rel="noopener noreferrer"
+						<a href="<?php echo gomoto_get_theme_option('feedback-google'); ?>" rel="noopener noreferrer"
 						   target="_blank">
 							<img width="250" height="117" src="/wp-content/uploads/2025/03/googlemaps-1.webp"
 								 alt="Отзывы в Гугле">
 						</a>
 					</div>
 					<div class="col flex jc-c">
-						<a href="<?php echo carbon_get_theme_option('feedback-yandex'); ?>" rel="noopener noreferrer"
+						<a href="<?php echo gomoto_get_theme_option('feedback-yandex'); ?>" rel="noopener noreferrer"
 						   target="_blank">
 							<img width="250" height="117" src="/wp-content/uploads/2025/03/yandexmaps.webp"
 								 alt="Отзывы в Яндексе">
 						</a>
 					</div>
 					<div class="col flex jc-c col--2gis">
-						<a href="<?php echo carbon_get_theme_option('feedback-2gis'); ?>" rel="noopener noreferrer"
+						<a href="<?php echo gomoto_get_theme_option('feedback-2gis'); ?>" rel="noopener noreferrer"
 						   target="_blank">
 							<img width="250" height="117" src="/wp-content/uploads/2025/03/2gis-1.webp"
 								 alt="Отзывы на 2GIS">
@@ -698,3 +698,4 @@ if ($rating_value && $rating_count) {
 
 <?php
 get_footer();
+

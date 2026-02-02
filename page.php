@@ -18,7 +18,7 @@ get_header();
 			<div class="page">
 				<div class="page-content">
 					<?php the_content(); ?>
-					<?php if ( is_page (132) && ( ! empty ( $discounts = carbon_get_the_post_meta('discounts') ) ) ) { ?>
+					<?php if ( is_page (132) && ( ! empty ( $discounts = gomoto_get_the_post_meta('discounts') ) ) ) { ?>
 					<div class="discount pt-60 pb-60">
 						<?php foreach ( $discounts  as $discount ) { ?>
 						<div class="discount__item">
@@ -29,7 +29,7 @@ get_header();
 					</div>
 					<?php } ?>
 
-					<?php if ( is_page (12) && ( ! empty ( $vacancies = carbon_get_the_post_meta('vacancies') ) ) ) { ?>
+					<?php if ( is_page (12) && ( ! empty ( $vacancies = gomoto_get_the_post_meta('vacancies') ) ) ) { ?>
 					<div class="vacancies pt-60 pb-60">
 						<?php foreach ( $vacancies  as $vacancy ) { ?>
 						<div class="vacancies__item">
@@ -65,3 +65,4 @@ get_header();
 
 <?php
 get_footer();
+

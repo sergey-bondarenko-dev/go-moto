@@ -1,10 +1,10 @@
 <?php
 
-$video_webm_id         = carbon_get_the_post_meta('hero_video_webm');
-$video_mp4_id          = carbon_get_the_post_meta('hero_video_mp4');
-$video_mobile_webm_id  = carbon_get_the_post_meta('hero_video_mobile_webm');
-$video_mobile_mp4_id   = carbon_get_the_post_meta('hero_video_mobile_mp4');
-$poster_id             = carbon_get_the_post_meta('hero_poster');
+$video_webm_id         = gomoto_get_the_post_meta('hero_video_webm');
+$video_mp4_id          = gomoto_get_the_post_meta('hero_video_mp4');
+$video_mobile_webm_id  = gomoto_get_the_post_meta('hero_video_mobile_webm');
+$video_mobile_mp4_id   = gomoto_get_the_post_meta('hero_video_mobile_mp4');
+$poster_id             = gomoto_get_the_post_meta('hero_poster');
 
 $video_webm_src        = wp_get_attachment_url($video_webm_id);
 $video_mp4_src         = wp_get_attachment_url($video_mp4_id);
@@ -12,13 +12,13 @@ $video_mobile_webm_src = wp_get_attachment_url($video_mobile_webm_id);
 $video_mobile_mp4_src  = wp_get_attachment_url($video_mobile_mp4_id);
 $poster_src            = wp_get_attachment_url($poster_id);
 
-$opacity = (float) carbon_get_the_post_meta('hero_darkness');
+$opacity = (float) gomoto_get_the_post_meta('hero_darkness');
 ?>
 
 <section class="hero" style="--opacity: <?php echo ($opacity / 100); ?>">
 		<div class="hero__inner container">
 			<div class="section-title">
-				<?php if (!empty($offers_title = carbon_get_the_post_meta('offers-title'))) { ?>
+				<?php if (!empty($offers_title = gomoto_get_the_post_meta('offers-title'))) { ?>
 					<h1 class="section-title__title">
 						<?php echo $offers_title; ?>
 					</h1>
@@ -29,7 +29,7 @@ $opacity = (float) carbon_get_the_post_meta('hero_darkness');
 				<?php } ?>
 			</div>
 			<div class="pluses-wrapper">
-				<?php if (!empty($adv_title = carbon_get_the_post_meta('adv-title'))) { ?>
+				<?php if (!empty($adv_title = gomoto_get_the_post_meta('adv-title'))) { ?>
 					<div class="section-title">
 						<h2 class="section-title__title">
 							<?php echo $adv_title; ?>
@@ -42,7 +42,7 @@ $opacity = (float) carbon_get_the_post_meta('hero_darkness');
 				<?php } ?>
 				<div class="section-content">
 					<div class="pluses flex gap-20 jc-spb">
-						<?php foreach (carbon_get_the_post_meta('adv') as $plus) { ?>
+						<?php foreach (gomoto_get_the_post_meta('adv') as $plus) { ?>
 							<div class="pluses__item flex gap-20">
 								<div class="pluses__icon">
 									<?php echo $plus['icon']; ?>
@@ -95,3 +95,4 @@ $opacity = (float) carbon_get_the_post_meta('hero_darkness');
 
 		</video>
 	</section>
+

@@ -1,5 +1,6 @@
 <?php
 
+require_once get_theme_file_path('inc/carbon-cache.php');
 require_once get_theme_file_path('inc/schema-utils.php');
 require_once get_theme_file_path('inc/schema-builders.php');
 

@@ -261,7 +261,7 @@ function crb_attach_theme_options()
 
 					foreach ($stickers as $sticker) {
 						$title = get_the_title($sticker->ID);
-						$color = carbon_get_post_meta($sticker->ID, 'sticker_color');
+						$color = gomoto_get_post_meta($sticker->ID, 'sticker_color');
 
 						$options[$sticker->ID] = "$title ($color)";
 					}
@@ -315,7 +315,7 @@ function gomoto_get_socials(string $filter = GOMOTO_SOCIALS_FILTER_ALL): array
         return $cached;
     }
 
-    $socials = carbon_get_theme_option('socials') ?: [];
+    $socials = gomoto_get_theme_option('socials') ?: [];
 
     $socials = array_map(function ($item) {
         return [
@@ -349,7 +349,7 @@ add_action('carbon_fields_theme_options_container_saved', function () {
  */
 function get_base_booking_form_code()
 {
-	$booking_form_code = carbon_get_theme_option('base-booking-form');
+	$booking_form_code = gomoto_get_theme_option('base-booking-form');
 
 	if (!empty($booking_form_code)) {
 		return $booking_form_code;
@@ -402,3 +402,4 @@ add_action('carbon_fields_register_fields', function () {
 add_action('after_setup_theme', function () {
 	\Carbon_Fields\Carbon_Fields::boot();
 });
+
