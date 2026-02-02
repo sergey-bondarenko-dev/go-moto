@@ -62,19 +62,6 @@
 	</div>
 </footer><!-- #colophon -->
 </div><!-- #page -->
-<!--div id="popup" class="popup bg-navy" style="display: none">
-	<div class="section-title">
-		<h2 id="popup-title" class="section-title__title">
-
-		</h2>
-		<div class="section-title__subtitle body-3" id="popup-subtitle">
-
-		</div>
-	</div>
-	<div class="section-content">
-		<?php echo do_shortcode('[contact-form-7 id="15f8059" title="Контактная форма"]'); ?>
-	</div>
-</div-->
 <?php wp_footer(); ?>
 <style>
 	@media screen and (max-width: 414px) {

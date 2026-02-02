@@ -37,7 +37,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 					<div class="row gap-40">
 						<div class="col -right">
 							<div class="product-gallery">
-								<div class="swiper-container slider">
+								<div class="swiper slider">
 									<div class="swiper-wrapper">
 										<?php if (!empty($thumbnail_url = get_the_post_thumbnail_url())) { ?>
 											<div class="swiper-slide">
@@ -73,7 +73,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 										</svg>
 									</div>
 								</div>
-								<div class="slider-thumbnail">
+								<div class="swiper slider-thumbnail">
 									<div class="swiper-wrapper">
 										<?php if (!empty($thumbnail_url = get_the_post_thumbnail_url())) { ?>
 											<div class="swiper-slide">
@@ -713,7 +713,7 @@ $product_type = carbon_get_the_post_meta('product-type');
 				</div>
 				<div class="section-content">
 					<div class="products columns-3">
-						<div class="swiper swiper-container -paginate">
+						<div class="swiper -paginate">
 							<div class="swiper-wrapper">
 								<?php
 

@@ -23,8 +23,6 @@
 	<script>var mlineObj = { "frontUrl": "<?php echo esc_url(home_url()); ?>", "themeUrl": "<?php echo get_stylesheet_directory_uri(); ?>" };</script>
 
 	
-		<script src="/wp-content/themes/go-moto/js/swiper.min.js"></script>
-		<link href="/wp-content/themes/go-moto/css/swiper.min.css" rel="stylesheet">
 	
 
 	<!-- Yandex.Metrika counter -->

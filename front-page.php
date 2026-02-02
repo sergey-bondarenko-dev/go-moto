@@ -279,7 +279,7 @@ if ($rating_value && $rating_count) {
 			</div>
 			<div class="section-content">
 				<div class="products columns-3">
-					<div class="swiper swiper-container gear">
+					<div class="swiper gear">
 						<div class="swiper-wrapper">
 							<?php $products = carbon_get_the_post_meta('offers-2');
 							foreach ($products as $prod) {
@@ -580,7 +580,7 @@ if ($rating_value && $rating_count) {
 				</div>
 			</div>
 			<div class="section-content">
-				<div class="posts">
+				<div class="posts swiper">
 					<?php
 					$query = new WP_Query('posts_per_page=3&ignore_sticky_posts=0&orderby=date');
 					?>
@@ -642,7 +642,7 @@ if ($rating_value && $rating_count) {
 				</div>
 			</div>
 			<div class="pt-60">
-				<div class="swiper swiper-container -paginate">
+				<div class="swiper -paginate">
 					<div class="swiper-wrapper">
 						<?php foreach ($slides as $slide): ?>
 							<div class="swiper-slide"><?php echo wp_get_attachment_image($slide, 'full', false, array('loading' => 'lazy')); ?></div>

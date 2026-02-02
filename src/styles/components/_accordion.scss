@@ -1,0 +1,128 @@
+.accordion-group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    border-top: 1px solid #000;
+
+    &:last-child {
+      border-bottom: 1px solid #000;
+    }
+  }
+}
+
+.accordion {
+  --transition-duration: 0.3s;
+  --transition-duration-longer: 0.5s;
+
+  width: 100%;
+  color: var(--navy);
+
+  /* Если внутри есть стрелка — отключаем псевдоэлементы */
+  &:has(.accordion__arrow) .accordion__title {
+    padding-right: 0;
+  }
+
+  &:has(.accordion__arrow) .accordion__title::before,
+  &:has(.accordion__arrow) .accordion__title::after {
+    display: none;
+  }
+
+  &__details {
+    padding-block: 1rem;
+
+    /* Открытое состояние details */
+    &[open] .accordion__title::after {
+      rotate: 0deg;
+    }
+
+    &[open] + .accordion__content {
+      grid-template-rows: 1fr;
+    }
+
+    &[open] .accordion__arrow {
+      rotate: 45deg;
+    }
+  }
+
+  &__summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      /* color: var(--color-red-60); */
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  /* Title */
+  &__title {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    position: relative;
+    padding-right: 50px;
+    color: inherit;
+    transition-duration: var(--transition-duration);
+    font-size: var(--fs-22);
+    font-weight: 400;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 20px;
+      height: 2.5px;
+      border-radius: 10px;
+      transition-duration: var(--transition-duration-longer);
+    }
+
+    &::after {
+      rotate: 90deg;
+    }
+  }
+
+  /* Subtitle */
+  &__subtitle {
+    font-size: 0.75em;
+    font-weight: 500;
+    /* color: var(--color-gray-60); */
+  }
+
+  /* Arrow */
+  &__arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    margin-left: auto;
+    border-radius: 50%;
+    transition-duration: var(--transition-duration-longer);
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  /* Content */
+  &__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition-duration: var(--transition-duration-longer);
+  }
+
+  &__content-inner {
+    overflow: hidden;
+  }
+
+  &__content-body {
+    padding: 1rem 0.5rem;
+  }
+}

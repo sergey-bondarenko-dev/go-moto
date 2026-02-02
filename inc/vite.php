@@ -36,8 +36,8 @@ function enqueue_vite_assets()
 	$entry = 'src/scripts/main.ts';
 
 	if (is_vite_dev()) {
-		wp_enqueue_script_module('vite-client', VITE_DEV_SERVER . '/@vite/client', [], false);
-		wp_enqueue_script_module('vite-main', VITE_DEV_SERVER . '/' . $entry, ['vite-client'], false);
+		wp_enqueue_script_module('vite-client', VITE_DEV_SERVER . '/@vite/client', [], null);
+		wp_enqueue_script_module('vite-main', VITE_DEV_SERVER . '/' . $entry, ['vite-client'], null);
 		return;
 	}
 
