@@ -1,0 +1,97 @@
+:root {
+	--font: 'Rubik';
+	--fs-100: 100px;
+	--fs-80: 80px;
+	--fs-60: 60px;
+	--fs-44: 44px;
+	--fs-36: 36px;
+	--fs-28: 28px;
+	--fs-24: 24px;
+	--fs-22: 22px;
+	--fs-20: 20px;
+	--fs-18: 18px;
+	--fs-16: 16px;
+	--fs-14: 14px;
+	--p-120: 120px;
+	--p-60: 60px;
+	--p-40: 40px;
+	--p-30: 30px;
+	--p-20: 20px;
+	--p-10: 10px;
+	--m-60: 60px;
+	--m-20: 20px;
+	--br-10: 10px;
+	--br-20: 20px;
+	--navy: rgb(35, 38, 40);
+	--navy_50: #F3F4F6;
+	--navy_100: #E7E9EE;
+	--navy_200: #D0D4DC;
+	--navy_500: #8993A8;
+	--navy_900: #2B3D62;
+	--red: rgb(255, 152, 0);
+	--black: #000;
+	--white: #fff;
+	--gray-1a: #1a1a1a;
+	--gray-888: #888;
+	--gray-aaa: #aaa;
+	--gray-bbb: #bbb;
+	--gray-ccc: #ccc;
+	--gray-ddd: #ddd;
+	--gray-d5: #d5d9e0;
+	--gray-e5: #e5e5e5;
+	--gray-ec: #eceff3;
+	--gray-ef: #efefef;
+	--yellow-soft: #f0e2aa;
+	--navy-fallback: #132751;
+	--page-title-bg: #8f9fad;
+	--white-70: rgb(255 255 255 / 70%);
+	--white-10: rgba(255, 255, 255, 0.1);
+	--black-10: rgba(0, 0, 0, 0.1);
+	--black-05: rgba(0, 0, 0, 0.05);
+	--black-07: rgba(0, 0, 0, 0.07);
+	--navy-20: rgb(19 39 81 / 20%);
+	--red-soft: #ffeaea;
+	--red-soft-text: #ff5a5a;
+}
+
+@media screen and (max-width: 1024px) {
+	:root {
+		--fs-100: 70px;
+		--fs-80: 48px;
+		--fs-60: 48px;
+		--fs-44: 38px;
+		--fs-36: 32px;
+		--fs-28: 24px;
+		--fs-24: 22px;
+		--fs-22: 20px;
+		--fs-20: 18px;
+		--fs-16: 16px;
+		--fs-14: 14px;
+		--p-120: 100px;
+		--p-60: 50px;
+		--p-40: 30px;
+		--p-30: 20px;
+		--m-60: 40px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	:root {
+		--fs-100: 50px;
+		--fs-80: 32px;
+		--fs-60: 32px;
+		--fs-44: 28px;
+		--fs-36: 26px;
+		--fs-28: 20px;
+		--fs-24: 20px;
+		--fs-22: 18px;
+		--fs-18: 16px;
+		--p-120: 80px;
+		--p-60: 40px;
+		--p-40: 30px;
+		--p-20: 10px;
+		--p-30: 20px;
+		--m-60: 30px;
+		--m-20: 10px;
+	}
+}

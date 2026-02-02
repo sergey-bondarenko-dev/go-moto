@@ -1,0 +1,43 @@
+/* Background */
+.background {
+	background: var(--white-10);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	-webkit-filter: blur(100px);
+	filter: blur(100px);
+	-webkit-box-ordinal-group: 1;
+	-ms-flex-order: 0;
+	order: 0;
+	overflow: hidden;
+	-webkit-backdrop-filter: blur(100px);
+	backdrop-filter: blur(100px);
+}
+
+.ellipse {
+	width: 150.259px;
+	height: 50.875px;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	border-radius: 40px;
+	position: absolute;
+}
+
+.background-item.red {
+	background-color: var(--red);
+}
+
+.background-item:first-child {
+	top: 0;
+	left: 0;
+}
+
+.background-item+.background-item {
+	bottom: 0;
+	right: 0;
+	width: 167px;
+	height: 64.75px;
+}

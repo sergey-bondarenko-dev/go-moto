@@ -1,0 +1,17 @@
+.feedback .row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 150px;
+}
+
+.feedback .row .col img {
+	width: 250px;
+	height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+	.feedback .row {
+		flex-direction: column;
+	}
+}

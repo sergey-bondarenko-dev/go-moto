@@ -1,0 +1,69 @@
+.rent-prices {
+	background: var(--white);
+	padding: 24px;
+	border-radius: 12px;
+	box-shadow: 0 4px 18px var(--black-07);
+	max-width: 460px;
+	width: 100%;
+}
+
+.rent-prices__title {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 20px;
+}
+
+.rent-prices__row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 0;
+	border-top: 1px solid var(--gray-ef);
+}
+
+.rent-prices__left {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.rent-prices__days {
+	font-size: 17px;
+}
+
+.rent-prices__badge {
+	display: inline-block;
+	background: var(--red-soft);
+	color: var(--red-soft-text);
+	font-size: 13px;
+	font-weight: 600;
+	padding: 2px 6px;
+	border-radius: 6px;
+	width: fit-content;
+}
+
+.rent-prices__right {
+	text-align: right;
+}
+
+.rent-prices__price {
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.rent-prices__per {
+	font-size: 14px;
+	color: var(--gray-888);
+	margin-left: 4px;
+}
+
+@media (max-width: 600px) {
+	.rent-prices__title {
+		font-size: 18px;
+		margin-bottom: 1rem;
+	}
+
+	.rent-prices__days {
+		font-size: 15px;
+	}
+}

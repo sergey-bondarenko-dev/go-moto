@@ -1,0 +1,27 @@
+.faq {
+	padding: 52px 0 108px;
+}
+
+.faq__wrapper {}
+
+.faq__icon {
+	margin: 0 auto;
+	display: block;
+	width: fit-content;
+}
+
+.faq__title {
+	font-size: 64px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 5px;
+}
+
+.faq__descr {
+	font-size: 16px;
+	font-family: 'Inter', sans-serif;
+	text-align: center;
+	opacity: .5;
+	margin-top: 11px;
+}

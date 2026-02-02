@@ -1,0 +1,36 @@
+.single .seo-block .header-content-text>span:first-child {
+	display: block;
+	text-transform: uppercase;
+	color: var(--gray-888);
+}
+
+.single .seo-block .gap-40 .col--2:nth-child(2) .flex {
+	margin-bottom: 10px;
+}
+
+.single .seo-block .gap-40 .col--2:nth-child(2) h4 {
+	margin: 20px 0 20px !important;
+}
+
+.single .seo-block .header-contact {
+	margin-bottom: 15px;
+	line-height: 1.5;
+}
+
+.single .seo-block .header-contact .icon svg {
+	width: 15px;
+}
+
+.single .seo-block .gap-40 .col--2:nth-child(2) .flex svg {
+	width: 20px;
+	height: 20px;
+}
+
+.single .seo-block .col:first-child .flex {
+	margin-bottom: 24px;
+}
+
+.single .seo-block .col:first-child .flex a {
+	display: block;
+	text-transform: none;
+}

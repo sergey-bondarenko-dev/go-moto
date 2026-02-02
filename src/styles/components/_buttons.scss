@@ -1,0 +1,54 @@
+/* Buttons */
+.theme-btn {
+	border-radius: 3px;
+	padding: 20px 30px;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-size: var(--fs-14);
+	font-weight: 700;
+	line-height: 100%;
+	transition: all .3s ease;
+	height: 54px;
+}
+
+.theme-btn svg {
+	margin-left: 5px;
+}
+
+.theme-btn.red {
+	color: var(--white);
+	background: var(--red);
+}
+
+.theme-btn.red:hover {
+	box-shadow: 0 0 0 2px var(--red);
+}
+
+.theme-btn.white {
+	color: var(--navy);
+	background: var(--white);
+	border: 2px solid transparent;
+}
+
+.theme-btn.white:hover {
+	box-shadow: 0 0 0 2px var(--white);
+}
+
+.theme-btn.small {
+	padding: 15px 20px;
+}
+
+@media screen and (max-width: 768px) {
+	.theme-btn {
+		height: 52px;
+	}
+}

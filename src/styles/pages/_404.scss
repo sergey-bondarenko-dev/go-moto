@@ -1,0 +1,87 @@
+/* 404 */
+.error-404 {
+	padding: 110px 0 210px;
+	position: relative;
+	min-height: 650px;
+}
+
+.error-404 .section-title {
+	max-width: 550px;
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	margin: auto;
+}
+
+.error-404__buttons {
+	justify-content: center;
+}
+
+.error-404 .section-content:not(:first-child) {
+	margin-top: 60px;
+}
+
+.error-404-decor {
+	position: absolute;
+	top: -84px;
+	right: -26px;
+	z-index: 0;
+	max-width: 70%;
+}
+
+@media screen and (max-width: 1024px) {
+	.error-404 {
+		padding: 486px 0 188px;
+		min-height: auto;
+	}
+
+	.error-404 .section-title {
+		margin: auto;
+		text-align: center;
+		max-width: 450px;
+	}
+
+	.error-404 .section-title h1 {
+		max-width: 450px;
+		margin: 0 auto 10px;
+	}
+
+	.error-404 .section-title__subtitle {
+		font-size: 14px;
+	}
+
+	.error-404 .section-content:not(:first-child) {
+		margin-top: 40px;
+	}
+
+	.error-404__buttons {
+		justify-content: center;
+		position: relative;
+		z-index: 1;
+	}
+
+	.error-404-decor {
+		top: -457px;
+		right: 0;
+		left: 0;
+		margin: auto;
+		max-height: 452px;
+		max-width: 637px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.error-404 {
+		padding: 259px 0 57px;
+	}
+
+	.error-404 .section-title {
+		max-width: 290px;
+	}
+
+	.error-404-decor {
+		max-width: 334px;
+		max-height: 236px;
+		top: -216px;
+	}
+}

@@ -1,11 +1,4 @@
 <?php
-/**
- * MLine functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package MLine
- */
 
 require_once get_theme_file_path('inc/schema-utils.php');
 require_once get_theme_file_path('inc/schema-builders.php');

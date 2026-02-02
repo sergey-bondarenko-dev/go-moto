@@ -1,0 +1,42 @@
+/* WP Reset */
+figure.wp-block-image.size-full {
+	margin: 0;
+}
+
+figure.wp-block-image.size-full a {
+	display: flex;
+}
+
+h3.wp-block-heading {
+	margin-bottom: 20px;
+}
+
+.wp-block-buttons {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.wp-element-button {
+	background-color: var(--red);
+	font-size: var(--fs-16);
+	padding: 12px 24px;
+	border-radius: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+body .is-layout-flex {
+	display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+	.wp-block-columns.column {
+		flex-direction: column;
+	}
+
+	.wp-block-columns.column .wp-block-column {
+		flex-basis: auto !important;
+	}
+}

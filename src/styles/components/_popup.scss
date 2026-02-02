@@ -1,0 +1,57 @@
+.fancybox-bg {
+	opacity: 0.67;
+	background: var(--navy, var(--navy-fallback));
+}
+
+.popup {
+	background-image: url(/wp-content/themes/mline/img/bg-form.jpg);
+	border-radius: 20px;
+	color: var(--white);
+	padding: 40px;
+	width: 400px;
+	max-width: 90%;
+}
+
+.popup .fancybox-button {
+	width: 80px;
+	height: 80px;
+	padding: 20px !important;
+}
+
+.wpcf7-submit {
+	width: 100%;
+}
+
+.wpcf7-spinner {
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.popup {
+		padding: 20px;
+		width: 360px;
+	}
+
+	.popup .section-content:not(:first-child) {
+		margin-top: 20px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.popup {
+		width: 300px;
+	}
+
+	button,
+	input[type="button"],
+	input[type="reset"],
+	input[type="submit"] {
+		margin-top: 20px;
+	}
+
+	.popup .fancybox-button {
+		width: 45px;
+		height: 45px;
+		padding: 10px !important;
+	}
+}

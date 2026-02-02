@@ -1,0 +1,24 @@
+.banner {
+	background-size: cover;
+	background-position: top;
+}
+
+.banner-content {
+	padding: 45px 60px;
+	max-width: 550px;
+}
+
+.banner-content h3 {
+	margin-bottom: 20px;
+}
+
+.banner-content p {
+	color: var(--black);
+}
+
+@media screen and (max-width: 767px) {
+	.banner-content {
+		padding: 30px 30px 20px;
+		max-width: 550px;
+	}
+}

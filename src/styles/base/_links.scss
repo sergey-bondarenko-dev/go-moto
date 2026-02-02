@@ -1,0 +1,12 @@
+main a {
+	text-decoration: underline;
+}
+
+main a:hover {
+	text-decoration: none;
+}
+
+main a[href^="tel:"],
+main a[href^="mailto:"] {
+	text-decoration: inherit;
+}

@@ -1,0 +1,56 @@
+/* Elements
+--------------------------------------------- */
+body {
+	background: var(--white);
+	font-family: 'Montserrat';
+	color: var(--navy);
+	font-size: var(--fs-16);
+	line-height: 130%;
+}
+
+ul,
+ol {
+	margin: 0;
+}
+
+ul {
+	list-style: disc;
+	padding-inline-start: 20px;
+}
+
+ul:not(.menu) li {
+	/* padding: 3px 0; */
+}
+
+ul.menu {
+	padding-left: 0;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li>ul,
+li>ol {
+	margin-bottom: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+figure {
+	margin: 0px 0px 20px;
+}
+
+figure img {
+	width: 100%;
+}

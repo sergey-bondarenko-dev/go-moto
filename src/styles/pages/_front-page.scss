@@ -1,0 +1,43 @@
+.front-page .header-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	color: var(--white);
+	transition: background-color .3s ease;
+}
+
+@media (hover: hover) {
+	.front-page .header-wrapper:hover {
+		background-color: var(--navy);
+	}
+}
+
+.front-page .header-wrapper .desktop-menu {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.front-page .header-wrapper .site-header {
+	background-color: transparent;
+}
+
+.front-page .header-wrapper .desktop-menu a {
+	color: inherit;
+}
+
+.front-page .header-wrapper .desktop-menu .menu-item-has-children a::after {
+	filter: invert(1);
+}
+
+@media (hover: hover) {
+	.front-page .header-wrapper .desktop-menu .menu-item-has-children:hover a::after {
+		filter: invert(0);
+	}
+}
+
+.front-page .header-wrapper .desktop-menu .sub-menu {
+	background-color: var(--navy);
+	color: var(--white);
+}

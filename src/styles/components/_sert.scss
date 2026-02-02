@@ -1,0 +1,19 @@
+/* Sertificate */
+.sert__content,
+.sert img {
+	height: 500px;
+	object-fit: cover;
+	width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+	.sert__content {
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.sert img {
+		height: 340px;
+	}
+}

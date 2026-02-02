@@ -1,0 +1,139 @@
+/* Mobile menu */
+.mobile-menu {
+	padding: 15px 24px 20px;
+	width: 100%;
+	border-radius: 20px;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
+	display: none;
+	height: 100vh;
+	overflow-y: auto;
+}
+
+.mobile-menu.is-open {
+	opacity: 1;
+	pointer-events: all;
+	z-index: 20;
+	display: block;
+	-webkit-transition-delay: .3s;
+	transition-delay: .3s;
+}
+
+.mobile-menu:before {
+	content: '';
+	width: 100%;
+	height: 116vh;
+	opacity: 0.67;
+	background: var(--navy);
+	display: block;
+	position: absolute;
+	z-index: -1;
+	left: 0;
+}
+
+.mobile-nav {
+	margin: 143px 0 135px;
+}
+
+.mobile-nav ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	list-style: none;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-padding-start: 0;
+	padding-inline-start: 0;
+}
+
+.mobile-nav ul li {
+	padding: 15px 0px;
+}
+
+.mobile-nav ul li:not(:last-child) {
+	margin-right: 30px;
+}
+
+.mobile-nav ul a {
+	color: var(--white);
+	text-decoration: none;
+	font-size: var(--fs-22);
+	font-weight: 500;
+	line-height: 100%;
+}
+
+.mobile-menu a {
+	color: var(--white);
+}
+
+.socials {
+	display: flex;
+	gap: 20px;
+}
+
+.socials a svg {
+	width: 35px;
+	height: 35px;
+}
+
+@media screen and (max-width: 1024px) {
+	.mobile-menu {
+		padding: 10px 10px 50px;
+	}
+
+	.mobile-nav {
+		margin: 20px 0 10px;
+	}
+
+	.mobile-nav ul {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+
+	.mobile-nav ul li {
+		margin-right: 0;
+		margin-bottom: 10px;
+		padding: 0;
+	}
+
+	.mobile-nav ul li ul {
+		padding-left: 15px;
+		padding-top: 10px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.socials {
+		gap: 1rem;
+	}
+}
+
+.mobile-menu-top {
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+	.mobile-menu-top {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.mobile-menu-logo img {
+		max-height: 45px;
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.mobile-menu-logo img {
+		max-height: 40px;
+	}
+}

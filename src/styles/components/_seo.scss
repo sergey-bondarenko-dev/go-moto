@@ -1,0 +1,31 @@
+.seo-block svg {
+	width: 26px;
+	height: 26px;
+	flex-shrink: 0;
+}
+
+.seo-block .col .flex {
+	margin-bottom: 15px;
+}
+
+.seo-block .flex span span {
+	text-transform: none;
+}
+
+.directions__item {
+	color: var(--black);
+}
+
+.direction__icon svg {
+	width: 50px;
+	height: 50px;
+}
+
+.direction__icon {
+	display: flex;
+	align-items: center;
+}
+
+.direction__text h3 {
+	margin-bottom: 5px;
+}

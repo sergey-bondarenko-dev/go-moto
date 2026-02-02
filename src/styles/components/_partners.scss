@@ -1,0 +1,23 @@
+/* Partners */
+.wp-block-columns.partners {
+	align-items: flex-start;
+	margin-top: 60px;
+	flex-wrap: wrap;
+}
+
+.wp-block-columns.partners .wp-block-column {
+	max-width: 200px;
+}
+
+.wp-block-columns.partners img {
+	object-fit: contain;
+	margin-bottom: 30px;
+	aspect-ratio: 1/1;
+	max-height: 170px;
+}
+
+@media screen and (max-width: 600px) {
+	.wp-block-columns.partners {
+		justify-content: center;
+	}
+}

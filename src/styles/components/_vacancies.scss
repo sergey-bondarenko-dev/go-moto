@@ -1,0 +1,113 @@
+.vacancies__item-title {
+	font-size: var(--fs-22);
+}
+
+.vacancies__item-icon {
+	font-size: 24px;
+	font-weight: bold;
+	text-transform: uppercase;
+	position: relative;
+}
+
+.vacancies__item-icon:before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	background-image: url(/wp-content/themes/go-moto/img/plus.png);
+	display: block;
+	background-size: contain;
+	background-position: center;
+}
+
+.active .vacancies__item-icon:before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	background-image: url(/wp-content/themes/go-moto/img/minus.png);
+	display: block;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.vacancies__item-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.vacancies__item-body {
+	/* display: none; */
+}
+
+.vacancies__list {
+	max-width: 929px;
+	margin: 65px auto 0;
+}
+
+.vacancies__item {
+	border-top: 1px solid var(--black);
+	padding: 20px 0 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.vacancies__item.active .vacancies__item-body {
+	max-height: 500px;
+}
+
+.vacancies__item:last-child {
+	border-bottom: 1px solid var(--black);
+}
+
+.vacancies__item-header {
+	cursor: pointer;
+	line-height: 160%;
+	font-size: var(--fs-16);
+}
+
+.vacancies__item-body {
+	font-size: 16px;
+	font-family: 'Inter', sans-serif;
+	margin-top: 10px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height .6s ease;
+}
+
+.vacancies__item-header * {
+	pointer-events: none;
+}
+
+@media(max-width: 650px) {
+	.vacancies {
+		padding: 34px 0 66px;
+	}
+
+	.vacancies__title {
+		font-size: 32px;
+	}
+
+	.vacancies__descr {
+		font-size: 13px;
+		max-width: 274px;
+		margin: 0 auto;
+		margin-top: 11px;
+	}
+
+	.vacancies__item-title {
+		/* font-size: 20px; */
+	}
+
+	.vacancies__list {
+		margin: 40px auto 0;
+	}
+
+	.vacancies__item {
+		padding: 20px 0 10px;
+	}
+
+	.vacancies__item-body {
+		/* font-size: 16px; */
+	}
+}

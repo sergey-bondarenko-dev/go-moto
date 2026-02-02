@@ -1,0 +1,28 @@
+/* Services */
+.services .wp-block-column {
+	width: calc(100% / 3);
+}
+
+.services .wp-block-column img {
+	width: 70px;
+	height: 70px;
+	min-width: 70px;
+}
+
+.wp-block-columns.services {
+	margin-bottom: 30px;
+}
+
+@media screen and (max-width: 991px) {
+	.services .wp-block-column {
+		width: 100%;
+	}
+
+	.services .wp-block-column .wp-block-column:first-child {
+		flex-basis: 70px !important;
+	}
+
+	.services>div>.wp-block-columns {
+		flex-wrap: wrap;
+	}
+}

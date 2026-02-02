@@ -1,5 +1,7 @@
 <?php
 
+$args ??= [];
+
 extract($args);
 
 if (empty($price)) {
@@ -15,7 +17,6 @@ if (empty($discounts)) {
         ['percent' => 20, 'days' => 'на 15 и более дней'],
     ];
 }
-
 
 ?>
 

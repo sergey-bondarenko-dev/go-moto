@@ -1,0 +1,18 @@
+.shop figure.wp-block-image img {
+	width: 100% !important;
+	height: 473px !important;
+	object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+	.woocommerce ul.products[class*=columns-] li.product,
+	.woocommerce-page ul.products[class*=columns-] li.product {
+		margin-bottom: 0;
+	}
+}
+
+ul.products li.product a,
+a.woof_btn_default,
+.products .product a {
+	text-decoration: none;
+}

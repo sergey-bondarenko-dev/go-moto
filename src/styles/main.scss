@@ -1,6 +1,56 @@
 // Global theme styles
 
-@use './components/accordion';
+@use './base/normalize';
+@use './base/box-sizing';
+@use './base/typography';
+@use './base/elements';
+@use './base/forms';
 
-body {
-}
+@use './layout/layout';
+
+@use './utils';
+
+@use './components/buttons';
+
+@use './variables';
+@use './base/fonts';
+@use './base/type-scale';
+
+@use './components/header';
+@use './components/mobile-menu';
+@use './components/background';
+@use './components/footer';
+@use './components/section-title';
+@use './components/gallery';
+@use './components/swiper';
+
+@use './pages/404' as *;
+@use './pages/page-title';
+
+@use './components/popup';
+@use './components/faq';
+@use './components/accordion';
+@use './components/vacancies';
+@use './components/partners';
+@use './components/discount';
+@use './components/services';
+@use './components/contacts';
+@use './components/woocommerce';
+@use './components/posts';
+@use './components/wp-reset';
+@use './components/sert';
+@use './components/pluses';
+@use './components/banner';
+@use './components/seo';
+@use './components/product';
+@use './pages/single';
+@use './components/order';
+@use './components/shop';
+@use './base/links';
+@use './components/feedback';
+@use './components/stickers';
+@use './components/categories';
+@use './components/rent-prices';
+@use './components/hero';
+@use './pages/front-page';
+@use './components/nav-tabs';

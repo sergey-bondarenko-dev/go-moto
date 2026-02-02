@@ -1,0 +1,34 @@
+.hero {
+	min-height: 100vh;
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+.hero::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, var(--opacity, 0.5));
+	z-index: -1;
+}
+
+.hero__inner {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	padding-block: 15rem 4rem;
+	color: var(--white);
+	margin: 0;
+}
+
+.hero__video-bg {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	object-fit: cover;
+}

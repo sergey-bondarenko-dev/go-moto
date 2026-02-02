@@ -1,0 +1,43 @@
+.order .form__col:first-child {
+	padding-bottom: 37px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 214px;
+}
+
+.order input[type=submit] {
+	max-width: 260px;
+	border: 0;
+}
+
+.order label {
+	text-transform: uppercase;
+}
+
+.order label input,
+.order label textarea {
+	margin-top: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+	.order .form__row {
+		gap: 0;
+	}
+
+	.order .form__row label {
+		margin-bottom: 20px;
+	}
+
+	.order .form__col:first-child {
+		padding-bottom: 0;
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.order input[type=submit] {
+		width: 100%;
+		max-width: 100%;
+	}
+}

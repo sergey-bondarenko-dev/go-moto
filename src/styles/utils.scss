@@ -1,0 +1,194 @@
+.uppercase {
+	text-transform: uppercase;
+}
+
+.grey {
+	color: var(--gray-888);
+}
+
+.flex {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.jc-c {
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.jc-fe {
+	-webkit-box-pack: end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+}
+
+.jc-fs {
+	-webkit-box-pack: start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+}
+
+.jc-spb {
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+}
+
+.jc-sa {
+	-webkit-box-pack: space-around;
+	-ms-flex-pack: space-around;
+	justify-content: space-around;
+}
+
+.fd-c {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+
+.ali-c {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.ali-fs {
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start !important;
+}
+
+.ali-fe {
+	-webkit-box-align: end;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+
+.fw-700 {
+	font-weight: 700;
+}
+
+.h1,
+.fs-100 {
+	font-size: var(--fs-100);
+	font-weight: 300;
+}
+
+.fs-36 {
+	font-size: var(--fs-36);
+	margin-bottom: 30px;
+}
+
+.fs-22 {
+	font-size: var(--fs-22);
+}
+
+.fs-20 {
+	font-size: var(--fs-20);
+}
+
+.fs-18,
+.body-2 {
+	font-size: var(--fs-18);
+	line-height: 140%;
+}
+
+.h6,
+.body-3 {
+	font-size: var(--fs-16);
+	line-height: 140%;
+}
+
+.body-4,
+.fs-14 {
+	font-size: var(--fs-14);
+	line-height: 130%;
+}
+
+.fs-80 {
+	font-size: var(--fs-80);
+}
+
+.fs-60 {
+	font-size: var(--fs-60);
+}
+
+.br-20 {
+	border-radius: var(--br-20);
+}
+
+.br-10 {
+	border-radius: var(--br-10);
+}
+
+.pt-120 {
+	padding-top: var(--p-120);
+}
+
+.pt-60 {
+	padding-top: var(--p-60);
+}
+
+.pt-30 {
+	padding-top: var(--p-30);
+}
+
+.pt-10 {
+	padding-top: var(--p-10);
+}
+
+.pb-120 {
+	padding-bottom: var(--p-120);
+}
+
+.pb-60 {
+	padding-bottom: var(--p-60);
+}
+
+.p-40 {
+	padding: var(--p-40);
+}
+
+.p-30 {
+	padding: var(--p-30);
+}
+
+.bg-navy {
+	background-color: var(--navy);
+	color: var(--white);
+}
+
+.bg-navy-50 {
+	background-color: var(--navy_50);
+	color: var(--navy);
+}
+
+.bg-red {
+	background-color: var(--red);
+	color: var(--white);
+}
+
+.bg-yellow {
+	background-color: var(--yellow-soft);
+	color: var(--navy);
+}
+
+.red {
+	color: var(--red);
+}
+
+.mt-15 {
+	margin-top: 15px;
+}

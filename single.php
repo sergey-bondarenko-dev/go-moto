@@ -1,11 +1,4 @@
 <?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package MLine
- */
 
 add_filter('wpseo_json_ld_output', '__return_false');
 get_header();

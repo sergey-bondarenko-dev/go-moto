@@ -1,0 +1,32 @@
+/* Typography
+--------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	margin: 0;
+	line-height: 120%;
+	font-weight: 600;
+	position: relative;
+	margin: 0;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+p {
+	/* margin: 0; */
+	margin-top: 0;
+}
+
+a {
+	color: var(--black);
+	text-decoration: none;
+}

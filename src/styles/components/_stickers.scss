@@ -1,0 +1,52 @@
+.product-image-link {
+	position: relative;
+}
+
+.stickers-wrapper {
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.product-sticker {
+	position: relative;
+	display: inline-block;
+	align-self: start;
+	border-radius: 10px;
+	padding: 5px 15px;
+	color: var(--white);
+	font-weight: bold;
+	line-height: 1;
+}
+
+@media (max-width: 425px) {
+	.stickers-wrapper {
+		bottom: 10px;
+		gap: 5px;
+	}
+
+	.product-sticker {
+		font-size: 14px;
+		padding: 5px 15px;
+	}
+}
+
+@media (max-width: 360px) {
+	.stickers-wrapper {
+		bottom: 15px;
+		gap: 10px;
+	}
+
+	.product-sticker {
+		font-size: 16px;
+		padding: 8px 20px;
+	}
+}
+
+*[data-fancybox] {
+	cursor: pointer !important;
+}
