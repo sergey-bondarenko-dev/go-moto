@@ -54,3 +54,8 @@
 @use './components/hero';
 @use './pages/front-page';
 @use './components/nav-tabs';
+
+:has(.swiper) {
+  min-width: 0;
+  min-height: 0;
+}

@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 
-
 export default defineConfig({
   root: __dirname,
   plugins: [
@@ -37,6 +36,7 @@ export default defineConfig({
     host: true,
     port: 5173,
     strictPort: true,
+    origin: 'http://localhost:5173',
     cors: {
       origin: 'https://gomoto.local',
       credentials: true

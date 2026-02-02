@@ -64,3 +64,46 @@ function enqueue_vite_assets()
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_vite_assets');
+
+function preload_vite_fonts()
+{
+	$font_sources = [
+		'src/fonts/Montserrat-Regular.ttf',
+		'src/fonts/Montserrat-Medium.ttf',
+		'src/fonts/Montserrat-Bold.ttf',
+	];
+
+	if (is_vite_dev()) {
+		foreach ($font_sources as $font_path) {
+			$font_url = rtrim(VITE_DEV_SERVER, '/') . '/' . $font_path;
+			printf(
+				'<link rel="preload" href="%s" as="font" type="font/ttf" crossorigin>' . "\n",
+				esc_url($font_url)
+			);
+		}
+		return;
+	}
+
+	if (!file_exists(VITE_MANIFEST)) {
+		return;
+	}
+
+	$manifest = json_decode(file_get_contents(VITE_MANIFEST), true);
+	if (!is_array($manifest)) {
+		return;
+	}
+
+	foreach ($font_sources as $font_path) {
+		if (empty($manifest[$font_path]['file'])) {
+			continue;
+		}
+
+		$font_url = get_template_directory_uri() . '/dist/' . $manifest[$font_path]['file'];
+		printf(
+			'<link rel="preload" href="%s" as="font" type="font/ttf" crossorigin>' . "\n",
+			esc_url($font_url)
+		);
+	}
+}
+
+add_action('wp_head', 'preload_vite_fonts', 1);

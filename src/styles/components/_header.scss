@@ -105,6 +105,10 @@ header .header-contact a:last-child {
 	justify-content: center;
 	background: var(--red);
 	display: none;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	margin-top: 0;
 }
 
 .site-burger svg {

@@ -569,50 +569,52 @@ if ($rating_value && $rating_count) {
 				</div>
 			</div>
 			<div class="section-content">
-				<div class="posts swiper">
-					<?php
-					$query = new WP_Query('posts_per_page=3&ignore_sticky_posts=0&orderby=date');
-					?>
-					<?php if ($query->have_posts()):
-						$index = 0; ?>
-						<div class="swiper-wrapper">
-							<?php while ($query->have_posts()):
-								$query->the_post();
-								$index++;
-								if ($index > 3)
-									break; ?>
-								<div class="swiper-slide">
-									<div class="post-item">
-										<div class='post-item__image'>
-											<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full'); ?></a>
+				<div class="posts-swiper">
+					<div class="posts swiper">
+						<?php
+						$query = new WP_Query('posts_per_page=3&ignore_sticky_posts=0&orderby=date');
+						?>
+						<?php if ($query->have_posts()):
+							$index = 0; ?>
+							<div class="swiper-wrapper">
+								<?php while ($query->have_posts()):
+									$query->the_post();
+									$index++;
+									if ($index > 3)
+										break; ?>
+									<div class="swiper-slide">
+										<div class="post-item">
+											<div class='post-item__image'>
+												<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('full'); ?></a>
+											</div>
+											<h3 class="post-item__link">
+												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+											</h3>
 										</div>
-										<h3 class="post-item__link">
-											<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										</h3>
 									</div>
-								</div>
-							<?php endwhile;
-							wp_reset_postdata(); ?>
+								<?php endwhile;
+								wp_reset_postdata(); ?>
+							</div>
+							<div class="swiper-button-prev">
+								<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+									<path d="M16.9225 10.6609L7.26745 10.6609L11.0175 14.4109L9.83912 15.5893L4.07745 9.82758L9.83912 4.06592L11.0175 5.24425L7.26745 8.99425H16.9225V10.6609Z"
+											fill="#ff9800"></path>
+								</svg>
+							</div>
+							<div class="swiper-button-next">
+								<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
+									<path d="M4.07745 8.99425L13.7325 8.99425L9.98245 5.24425L11.1608 4.06592L16.9225 9.82758L11.1608 15.5893L9.98245 14.4109L13.7325 10.6609H4.07745L4.07745 8.99425Z"
+											fill="#ff9800"></path>
+								</svg>
+							</div>
+						<?php endif; ?>
+						<div style="text-align: center; flex: 1 1 auto;">
+							<a class="wp-block-button__link wp-element-button"
+								href="<?php echo get_post_type_archive_link('post'); ?>"
+								style="max-width: 200px; margin: 0 auto;">
+								Смотреть всё
+							</a>
 						</div>
-						<div class="swiper-button-prev">
-							<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-								<path d="M16.9225 10.6609L7.26745 10.6609L11.0175 14.4109L9.83912 15.5893L4.07745 9.82758L9.83912 4.06592L11.0175 5.24425L7.26745 8.99425H16.9225V10.6609Z"
-									  fill="#ff9800"></path>
-							</svg>
-						</div>
-						<div class="swiper-button-next">
-							<svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" viewBox="0 0 21 20" fill="none">
-								<path d="M4.07745 8.99425L13.7325 8.99425L9.98245 5.24425L11.1608 4.06592L16.9225 9.82758L11.1608 15.5893L9.98245 14.4109L13.7325 10.6609H4.07745L4.07745 8.99425Z"
-									  fill="#ff9800"></path>
-							</svg>
-						</div>
-					<?php endif; ?>
-					<div style="text-align: center; flex: 1 1 auto;">
-						<a class="wp-block-button__link wp-element-button"
-						   href="<?php echo get_post_type_archive_link('post'); ?>"
-						   style="max-width: 200px; margin: 0 auto;">
-							Смотреть всё
-						</a>
 					</div>
 				</div>
 			</div>

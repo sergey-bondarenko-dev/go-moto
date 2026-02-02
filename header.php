@@ -49,13 +49,13 @@
 						<div class="header-item site-branding">
 							<?php echo get_custom_logo(); ?>
 						</div>
-						<div class="site-burger">
+						<button class="site-burger" type="button" aria-label="Открыть меню">
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
 								<path
 									d="M0 1.59998H15.9999V4.49022H0.000918411L0 1.59998ZM0 6.55486H15.9999V9.4451H0.000918411L0 6.55486ZM0 11.5097H15.9999V14.4H0V11.5097Z"
 									fill="white"></path>
 							</svg>
-						</div>
+						</button>
 						<div class="header-item flex ali-c jc-fe">
 							<div class="header-contact">
 								<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
@@ -140,12 +140,12 @@
 					<div class="mobile-menu-logo">
 						<?php echo get_custom_logo(); ?>
 					</div>
-					<div class="site-burger -close">
+					<button class="site-burger -close" type="button" aria-label="Закрыть меню">
 						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
 							<path d="M9.3335 9.33334L22.6668 22.6667M9.3335 22.6667L22.6668 9.33334" stroke="white"
 								stroke-width="3.33333" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
-					</div>
+					</button>
 				</div>
 				
 				<div class="mobile-nav">
