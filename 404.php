@@ -5,19 +5,19 @@
 		<section class="error-404 not-found bg-navy">
 			<div class="container">
 				<div class="section-title">
-					<?php if ( ! empty ( $title = gomoto_get_theme_option('404-title') ) ) { ?>
+					<?php if ( ! empty( $title = gomoto_get_theme_option( '404-title' ) ) ) { ?>
 					<h2 class="section-title__title">
 						<?php echo $title; ?>
 					</h2>
 					<?php } ?>
-					<?php if ( ! empty ( $subtitle = gomoto_get_theme_option('404-subtitle') ) ) { ?>
+					<?php if ( ! empty( $subtitle = gomoto_get_theme_option( '404-subtitle' ) ) ) { ?>
 					<p class="section-title__subtitle body-2">
 						<?php echo $subtitle; ?>
 					</p>
 					<?php } ?>
 				</div>
 				<div class="section-content">
-					<?php if ( ! empty ( $buttons = gomoto_get_theme_option('404-buttons') ) ) { ?>
+					<?php if ( ! empty( $buttons = gomoto_get_theme_option( '404-buttons' ) ) ) { ?>
 					<div class="error-404__buttons flex ali-c jc-spb">
 						<?php foreach ( $buttons as $button ) { ?>
 						<a href="<?php echo $button['link']; ?>" <?php echo $button['attr']; ?> class="theme-btn <?php echo $button['color']; ?>">
@@ -29,7 +29,7 @@
 					<?php } ?>
 				</div>
 				<div class="error-404-decor">
-					<?php echo wp_get_attachment_image( gomoto_get_theme_option('404-decor'), 'full' ); ?>
+					<?php echo wp_get_attachment_image( gomoto_get_theme_option( '404-decor' ), 'full' ); ?>
 				</div>
 			</div><!-- .page-content -->
 		</section><!-- .error-404 -->

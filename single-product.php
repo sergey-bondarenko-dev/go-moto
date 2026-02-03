@@ -680,7 +680,13 @@ $product_type = gomoto_get_the_post_meta('product-type');
 					</h2>
 				</div>
 				<div class="section-content">
-					<?= $online_booking_form ?>
+					<div class="rentprog-container is-loading" data-rentprog-container aria-busy="true">
+						<div class="rentprog-loader" role="status" aria-live="polite">
+							<div class="rentprog-spinner" aria-hidden="true"></div>
+							<div class="rentprog-loader__text">Загрузка формы...</div>
+						</div>
+						<?= $online_booking_form ?>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -708,32 +714,21 @@ $product_type = gomoto_get_the_post_meta('product-type');
 
 								foreach ($related as $prod) {
 									$_product = wc_get_product($prod);
-
 									?>
 									<div class="swiper-slide product type-product">
-										<div class="colored-separator" style="text-align: center;">
-											<div class="first-long stm-base-background-color"></div>
-											<div class="last-short stm-base-background-color"></div>
-										</div>
-										<a href="<?php echo get_the_permalink($prod); ?>"><?php echo get_the_post_thumbnail($prod); ?>
-										</a>
-										<h3 class="fs-18"><a
-											   href="<?= get_the_permalink($prod); ?>"><?php echo $_product->get_title(); ?></a>
-										</h3>
-										<p class="fs-14"><?= get_the_excerpt($prod); ?></p>
-										<div class="product__price">
-											<?php if (gomoto_get_post_meta($prod, 'product-type') == 'rent') { ?>
-												<div class="product-price fs-16"><span
-														  class="red"><?php echo $_product->get_price(); ?> BYN / сутки</span>
-												</div>
-											<?php } else { ?>
-												<div class="product-price fs-16"><span
-														  class="red"><?php echo $_product->get_price(); ?> BYN</span>
-												</div>
-
-
-											<?php } ?>
-										</div>
+										<?php
+										get_template_part(
+											'template-parts/product-card',
+											null,
+											[
+												'product_id' => $prod,
+												'product' => $_product,
+												'title_class' => 'fs-18',
+												'excerpt_class' => 'fs-14',
+												'image_link_class' => '',
+											]
+										);
+										?>
 									</div>
 								<?php }
 								/* $cats = wp_get_post_terms( get_the_id(), 'product_cat' );

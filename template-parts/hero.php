@@ -61,7 +61,7 @@ $opacity = (float) gomoto_get_the_post_meta('hero_darkness');
 				</div>
 			</div>
 		</div>
-		<video class="hero__video-bg" autoplay muted loop playsinline poster="<?= esc_url($poster_src); ?>">
+		<video class="hero__video-bg" fetchpriority="high" autoplay muted loop playsinline poster="<?= esc_url($poster_src); ?>">
 
 			<?php if ($video_mobile_webm_src): ?>
 				<source 

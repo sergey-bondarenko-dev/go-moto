@@ -122,7 +122,7 @@ export function initSwipers(): void {
 					slidesPerView: 1,
 					spaceBetween: 10
 				},
-				480: {
+				768: {
 					slidesPerView: 2,
 					spaceBetween: 20
 				},

@@ -1,57 +1,52 @@
 <?php
-add_filter('woocommerce_catalog_orderby', 'custom_orderby_options');
-function custom_orderby_options($sortby)
-{
+add_filter( 'woocommerce_catalog_orderby', 'custom_orderby_options' );
+function custom_orderby_options( $sortby ) {
 	$sortby['menu_order'] = 'Сортировать';
 
-	unset($sortby['popularity']);
-	unset($sortby['rating']);
-	unset($sortby['date']);
+	unset( $sortby['popularity'] );
+	unset( $sortby['rating'] );
+	unset( $sortby['date'] );
 
-	$sortby['year'] = 'По возрастанию года';
+	$sortby['year']      = 'По возрастанию года';
 	$sortby['year-desc'] = 'По убыванию года';
 
 	return $sortby;
 }
 
-add_filter('woocommerce_get_catalog_ordering_args', 'year_order');
-function year_order($args)
-{
-	$orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) :
-		apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+add_filter( 'woocommerce_get_catalog_ordering_args', 'year_order' );
+function year_order( $args ) {
+	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) :
+		apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
 
-	if ($orderby_value == 'year-desc') {
-		$args['orderby'] = 'meta_value_num';
+	if ( $orderby_value == 'year-desc' ) {
+		$args['orderby']  = 'meta_value_num';
 		$args['meta_key'] = '_attribute_pa_god';
-		$args['order'] = 'DESC';
-	} elseif ($orderby_value == 'year') {
-		$args['orderby'] = 'meta_value_num';
+		$args['order']    = 'DESC';
+	} elseif ( $orderby_value == 'year' ) {
+		$args['orderby']  = 'meta_value_num';
 		$args['meta_key'] = '_attribute_pa_god';
-		$args['order'] = 'ASC';
+		$args['order']    = 'ASC';
 	}
-
 
 	return $args;
 }
 
-add_action('woocommerce_process_product_meta', 'save_product_attributes_as_meta');
-function save_product_attributes_as_meta($post_id)
-{
-	$product = wc_get_product($post_id);
+add_action( 'woocommerce_process_product_meta', 'save_product_attributes_as_meta' );
+function save_product_attributes_as_meta( $post_id ) {
+	$product = wc_get_product( $post_id );
 
 	$attributes = $product->get_attributes();
 
-	if (!empty($attributes)) {
-		foreach ($attributes as $attribute) {
-			$attribute_name = $attribute->get_name();
-			$attribute_value = $product->get_attribute($attribute_name);
+	if ( ! empty( $attributes ) ) {
+		foreach ( $attributes as $attribute ) {
+			$attribute_name  = $attribute->get_name();
+			$attribute_value = $product->get_attribute( $attribute_name );
 
-			$meta_key = '_' . 'attribute_' . sanitize_title($attribute_name);
+			$meta_key = '_' . 'attribute_' . sanitize_title( $attribute_name );
 
-			update_post_meta($post_id, $meta_key, $attribute_value);
+			update_post_meta( $post_id, $meta_key, $attribute_value );
 		}
 	}
-
 }
 
 function theme_preload_product_main_image() {
@@ -74,18 +69,23 @@ function theme_preload_product_main_image() {
 }
 add_action( 'wp_head', 'theme_preload_product_main_image', 1 );
 
-add_action('wp_enqueue_scripts', function () {
-	if (is_admin()) {
-		return;
-	}
+add_action(
+	'wp_enqueue_scripts',
+	function () {
 
-	// Корзины нет — отключаем только скрипты добавления в корзину.
-	wp_dequeue_script('wc-add-to-cart');
-	wp_dequeue_script('wc-cart-fragments');
+		if ( is_admin() ) {
+			return;
+		}
 
-	// Отключаем все стили WooCommerce на фронтенде.
-	wp_dequeue_style('woocommerce-general');
-	wp_dequeue_style('woocommerce-layout');
-	wp_dequeue_style('woocommerce-smallscreen');
-	wp_dequeue_style('woocommerce-inline');
-}, 99);
+		// Корзины нет — отключаем только скрипты добавления в корзину.
+		wp_dequeue_script( 'wc-add-to-cart' );
+		wp_dequeue_script( 'wc-cart-fragments' );
+
+		// Отключаем все стили WooCommerce на фронтенде.
+		wp_dequeue_style( 'woocommerce-general' );
+		wp_dequeue_style( 'woocommerce-layout' );
+		wp_dequeue_style( 'woocommerce-smallscreen' );
+		wp_dequeue_style( 'woocommerce-inline' );
+	},
+	99
+);

@@ -2,13 +2,13 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 <link rel="icon" href="https://gomoto.by/favicon_120x120.png" type="image/x-icon">
 	<?php wp_head(); ?>
 
-	<script>var mlineObj = { "frontUrl": "<?php echo esc_url(home_url()); ?>", "themeUrl": "<?php echo get_stylesheet_directory_uri(); ?>" };</script>
+	<script>var mlineObj = { "frontUrl": "<?php echo esc_url( home_url() ); ?>", "themeUrl": "<?php echo get_stylesheet_directory_uri(); ?>" };</script>
 
 	
 	
@@ -34,7 +34,43 @@
 	</noscript>
 	<!-- /Yandex.Metrika counter -->
 	
-	<link href="https://rentprog-b5205.web.app/css/app.css" rel="stylesheet"/>
+	<style>
+		.rentprog-container {
+			position: relative;
+			min-height: 320px;
+		}
+		.rentprog-container.is-loading > :not(.rentprog-loader) {
+			visibility: hidden;
+		}
+		.rentprog-loader {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 12px;
+			padding: 24px;
+			text-align: center;
+		}
+		.rentprog-spinner {
+			width: 40px;
+			height: 40px;
+			border: 3px solid rgba(0, 0, 0, 0.15);
+			border-top-color: #ff9800;
+			border-radius: 50%;
+			animation: rentprog-spin 1s linear infinite;
+		}
+		.rentprog-container.is-loaded > .rentprog-loader {
+			display: none;
+		}
+		.rentprog-container.is-error .rentprog-loader__text {
+			color: #b00020;
+		}
+		@keyframes rentprog-spin {
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	</style>
 	
 </head>
 
@@ -42,11 +78,11 @@
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
 		<?php
-		$gomoto_custom_logo = get_custom_logo();
+		$gomoto_custom_logo  = get_custom_logo();
 		$gomoto_primary_menu = wp_nav_menu(
 			array(
 				'theme_location' => 'menu-1',
-				'echo' => false,
+				'echo'           => false,
 			)
 		);
 		?>
@@ -78,7 +114,7 @@
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php echo gomoto_get_theme_option('address'); ?>
+									<?php echo gomoto_get_theme_option( 'address' ); ?>
 								</div>
 							</div>
 						</div>
@@ -95,7 +131,7 @@
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php echo gomoto_get_theme_option('scedule'); ?>
+									<?php echo gomoto_get_theme_option( 'scedule' ); ?>
 								</div>
 							</div>
 						</div>
@@ -112,9 +148,9 @@
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
+									<?php foreach ( gomoto_get_theme_option( 'phones' ) as $phone ) { ?>
 										<a
-											href="tel:<?php echo preg_replace('/[^0-9.]+/', '', $phone['phone']); ?>"><?php echo $phone['phone']; ?></a>
+											href="tel:<?php echo preg_replace( '/[^0-9.]+/', '', $phone['phone'] ); ?>"><?php echo $phone['phone']; ?></a>
 									<?php } ?>
 								</div>
 							</div>
@@ -122,7 +158,7 @@
 						<div class="header-item flex ali-c jc-fe">
 							<div class="header-contact">
 								<div class="socials">
-									<?php foreach (gomoto_get_socials(GOMOTO_SOCIALS_FILTER_ONLY_MESSENGERS) as $social) { ?>
+									<?php foreach ( gomoto_get_socials( GOMOTO_SOCIALS_FILTER_ONLY_MESSENGERS ) as $social ) { ?>
 										<a href="<?php echo $social['link']; ?>"
 											target="_blank"><?php echo $social['icon']; ?></a>
 									<?php } ?>
@@ -154,7 +190,6 @@
 				<div class="mobile-nav">
 					<?php echo $gomoto_primary_menu; ?>
 				</div>
-
 				<div class="header-contact">
 					<div class="icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1"
 							xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512" x="0" y="0"
@@ -167,9 +202,9 @@
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
+						<?php foreach ( gomoto_get_theme_option( 'phones' ) as $phone ) { ?>
 							<a
-								href="tel:<?php echo preg_replace('/[^0-9.]+/', '', $phone['phone']); ?>"><?php echo $phone['phone']; ?></a>
+								href="tel:<?php echo preg_replace( '/[^0-9.]+/', '', $phone['phone'] ); ?>"><?php echo $phone['phone']; ?></a>
 						<?php } ?>
 					</div>
 				</div>
@@ -184,7 +219,7 @@
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php echo gomoto_get_theme_option('address'); ?>
+						<?php echo gomoto_get_theme_option( 'address' ); ?>
 					</div>
 				</div>
 				<div class="header-contact">
@@ -199,18 +234,17 @@
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php echo gomoto_get_theme_option('scedule'); ?>
+						<?php echo gomoto_get_theme_option( 'scedule' ); ?>
 					</div>
 				</div>
 
 				<div class="header-contact">
 					<div class="socials">
-						<?php foreach (gomoto_get_theme_option('socials') as $social) { ?>
+						<?php foreach ( gomoto_get_theme_option( 'socials' ) as $social ) { ?>
 							<a href="<?php echo $social['link']; ?>" target="_blank"><?php echo $social['icon']; ?></a>
 						<?php } ?>
 					</div>
 				</div>
 			</div>
 		</div>
-
 

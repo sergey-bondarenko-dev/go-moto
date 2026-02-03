@@ -322,17 +322,6 @@ get_header();
 
 							</script>
 						</div>
-						<!-- <div class="col">
-							<div class="contacts__gallery">
-								<?php $slides = gomoto_get_post_meta(get_the_ID(), 'contacts-gallery');
-								foreach ($slides as $slide):
-									?>
-									<a href="<?php echo wp_get_attachment_image_url($slide, 'full'); ?>" data-fancybox><img
-											src="<?php echo wp_get_attachment_image_url($slide, 'full'); ?>"
-											alt="Image"></a>
-								<?php endforeach; ?>
-							</div>
-						</div> -->
 					</div>
 					<div class="contacts__map pt-60">
 						<?php echo gomoto_get_theme_option('yandex-map'); ?>

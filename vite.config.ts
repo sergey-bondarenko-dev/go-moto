@@ -18,7 +18,7 @@ export default defineConfig({
       '@': resolve(__dirname, 'src')
     }
   },
- //  base: command === 'build' ? './' : '/',
+  base: './',
   css: {
     devSourcemap: true
   },
