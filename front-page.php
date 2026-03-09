@@ -445,13 +445,13 @@ if ( $rating_value && $rating_count ) {
 								</svg>
 							</div>
 						<?php endif; ?>
-						<div style="text-align: center; flex: 1 1 auto;">
-							<a class="wp-block-button__link wp-element-button"
-								href="<?php echo get_post_type_archive_link( 'post' ); ?>"
-								style="max-width: 200px; margin: 0 auto;">
-								Смотреть всё
-							</a>
-						</div>
+					</div>
+					<div style="text-align: center; flex: 1 1 auto;">
+						<a class="wp-block-button__link wp-element-button"
+							href="<?php echo get_post_type_archive_link( 'post' ); ?>"
+							style="max-width: 200px; margin: 0 auto;">
+							Смотреть всё
+						</a>
 					</div>
 				</div>
 			</div>
