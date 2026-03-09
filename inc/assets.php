@@ -1,5 +1,9 @@
 <?php
 function gomoto_dequeue_unwanted_styles() {
+	if ( is_admin() || ( defined( 'IFRAME_REQUEST' ) && IFRAME_REQUEST ) ) {
+		return;
+	}
+
 	$handles = array(
 		'wp-block-library',
 		'wp-block-library-theme',

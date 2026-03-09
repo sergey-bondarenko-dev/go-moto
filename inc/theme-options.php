@@ -468,9 +468,57 @@ function register_base_booking_form_shortcode() {
 
 add_action( 'init', 'register_base_booking_form_shortcode' );
 
+/**
+ * Шорткод-обертка для формы бронирования с прелоадером.
+ *
+ * @param array       $atts    Атрибуты шорткода.
+ * @param string|null $content Вложенный контент (опционально).
+ * @return string
+ */
+function gomoto_booking_form_shortcode( $atts, $content = null ) {
+	$atts = shortcode_atts(
+		array(
+			'shortcode' => 'base_booking_form',
+			'loader_text' => 'Загрузка формы...',
+		),
+		$atts,
+		'gomoto_booking_form'
+	);
+
+	$inner = '';
+	if ( $content !== null && trim( $content ) !== '' ) {
+		$inner = do_shortcode( $content );
+	} else {
+		$inner = do_shortcode( '[' . $atts['shortcode'] . ']' );
+	}
+
+	if ( $inner === '' ) {
+		return '';
+	}
+
+	$loader_text = esc_html( $atts['loader_text'] );
+
+	return '<div class="rentprog-container is-loading" data-rentprog-container aria-busy="true">'
+		. '<div class="rentprog-loader" role="status" aria-live="polite">'
+		. '<div class="rentprog-spinner" aria-hidden="true"></div>'
+		. '<div class="rentprog-loader__text">' . $loader_text . '</div>'
+		. '</div>'
+		. $inner
+		. '</div>';
+}
+
+/**
+ * Регистрация шорткода [gomoto_booking_form].
+ */
+function register_gomoto_booking_form_shortcode() {
+	add_shortcode( 'gomoto_booking_form', 'gomoto_booking_form_shortcode' );
+}
+
+add_action( 'init', 'register_gomoto_booking_form_shortcode' );
+
 function registerStickerPostType() {
 	$args = array(
-		'label'    => 'РЎС‚РёРєРµСЂС‹',
+		'label'    => 'Стикеры',
 		'public'   => false,
 		'show_ui'  => true,
 		'supports' => array( 'title' ),
@@ -484,22 +532,22 @@ add_action( 'init', 'registerStickerPostType' );
 add_action(
 	'carbon_fields_register_fields',
 	function () {
-		Container::make( 'post_meta', 'РќР°СЃС‚СЂРѕР№РєРё СЃС‚РёРєРµСЂС‹' )
+		Container::make( 'post_meta', 'Настройки стикера' )
 		->where( 'post_type', '=', 'sticker' )
 		->add_fields(
 			array(
-				Field::make( 'color', 'sticker_color', 'Р¦РІРµС‚ СЃС‚РёРєРµСЂР°' )
-					->set_help_text( 'Р’С‹Р±РµСЂРёС‚Рµ С†РІРµС‚ РёР»Рё СѓРєР°Р¶РёС‚Рµ РІСЂСѓС‡РЅСѓСЋ!' ),
+				Field::make( 'color', 'sticker_color', 'Цвет стикера' )
+					->set_help_text( 'Выберите цвет или укажите вручную!' ),
 			)
 		);
 
-		Container::make( 'term_meta', 'Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё' )
+		Container::make( 'term_meta', 'Дополнительные настройки' )
 		->where( 'term_taxonomy', '=', 'product_cat' )
 		->add_fields(
 			array(
-				Field::make( 'image', 'product_category_icon', 'РРєРѕРЅРєР° РєР°С‚РµРіРѕСЂРёРё' )
+				Field::make( 'image', 'product_category_icon', 'Иконка категории' )
 					->set_value_type( 'id' )
-					->set_help_text( 'Р—Р°РіСЂСѓР·РёС‚Рµ РёРєРѕРЅРєСѓ РґР»СЏ РєР°С‚РµРіРѕСЂРёРё' ),
+					->set_help_text( 'Загрузите иконку для категории' ),
 			)
 		);
 	}

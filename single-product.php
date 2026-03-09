@@ -29,7 +29,9 @@ $product_type = gomoto_get_the_post_meta('product-type');
 										<?php if (!empty($thumbnail_url = get_the_post_thumbnail_url())) { ?>
 											<div class="swiper-slide">
 												<a data-src="<?php echo $thumbnail_url; ?>" data-fancybox="gallery">
-													<?php echo get_the_post_thumbnail(null, 'woocommerce_single'); ?>
+													<?php echo get_the_post_thumbnail(null, [700, 700], 
+														['sizes' => "(min-width: 1240px) 700px, (min-width: 1024px) 50vw, (min-width: 360px) 100vw, 300px"]
+													); ?>
 												</a>
 											</div>
 										<?php } ?>
@@ -705,32 +707,19 @@ $product_type = gomoto_get_the_post_meta('product-type');
 					</h2>
 				</div>
 				<div class="section-content">
-					<div class="products columns-3">
-						<div class="swiper -paginate">
-							<div class="swiper-wrapper">
+					<?php
+					get_template_part(
+						'template-parts/product-slider',
+						null,
+						[
+							'products' => $related,
+							'title_class' => 'fs-18',
+							'excerpt_class' => 'fs-14',
+							'image_link_class' => '',
+						]
+					);
+					?>
 								<?php
-
-
-
-								foreach ($related as $prod) {
-									$_product = wc_get_product($prod);
-									?>
-									<div class="swiper-slide product type-product">
-										<?php
-										get_template_part(
-											'template-parts/product-card',
-											null,
-											[
-												'product_id' => $prod,
-												'product' => $_product,
-												'title_class' => 'fs-18',
-												'excerpt_class' => 'fs-14',
-												'image_link_class' => '',
-											]
-										);
-										?>
-									</div>
-								<?php }
 								/* $cats = wp_get_post_terms( get_the_id(), 'product_cat' );
 																																																							$cat = $cats[0];
 																																																							$args = array(      
@@ -775,20 +764,6 @@ $product_type = gomoto_get_the_post_meta('product-type');
 																																																							endif;
 																																																							wp_reset_postdata();
 																																																							*/ ?>
-
-							</div>
-							<div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20"
-									 viewBox="0 0 21 20" fill="none">
-									<path d="M16.9225 10.6609L7.26745 10.6609L11.0175 14.4109L9.83912 15.5893L4.07745 9.82758L9.83912 4.06592L11.0175 5.24425L7.26745 8.99425H16.9225V10.6609Z"
-										  fill="#ff9800" />
-								</svg></div>
-							<div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20"
-									 viewBox="0 0 21 20" fill="none">
-									<path d="M4.07745 8.99425L13.7325 8.99425L9.98245 5.24425L11.1608 4.06592L16.9225 9.82758L11.1608 15.5893L9.98245 14.4109L13.7325 10.6609H4.07745L4.07745 8.99425Z"
-										  fill="#ff9800" />
-								</svg></div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</section>

@@ -26,7 +26,7 @@ if (!$product instanceof WC_Product) {
 	return;
 }
 
-$sizes = $args['sizes'] ?? '(min-width: 1240px) 235px, (min-width: 1024px) 25vw, 50vw';
+$sizes = $args['sizes'] ?? '(min-width: 1240px) 283px, (min-width: 1024px) 25vw, (min-width: 768px) 33.333vw, (min-width: 361px) 50vw, 300px';
 $title_class = $args['title_class'] ?? 'fs-18';
 $excerpt_class = $args['excerpt_class'] ?? 'fs-14';
 $image_link_class = $args['image_link_class'] ?? 'product-image-link';
@@ -37,7 +37,7 @@ $image_link_class = $args['image_link_class'] ?? 'product-image-link';
 </div>
 <?php if (has_post_thumbnail($product_id)) { ?>
 	<a href="<?php echo esc_url(get_permalink($product_id)); ?>"<?php echo $image_link_class ? ' class="' . esc_attr($image_link_class) . '"' : ''; ?>>
-		<?php echo get_the_post_thumbnail($product_id, 'woocommerce_thumbnail', [
+		<?php echo get_the_post_thumbnail($product_id, [300, 300], [
 			'sizes' => $sizes,
 		]); ?>
 

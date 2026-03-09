@@ -7,9 +7,18 @@ if ( ! defined( 'VITE_MANIFEST' ) ) {
 	define( 'VITE_MANIFEST', get_template_directory() . '/dist/.vite/manifest.json' );
 }
 
+if ( ! defined( 'VITE_DEV_ENABLED' ) ) {
+	define( 'VITE_DEV_ENABLED', true );
+}
+
 function is_vite_dev(): bool {
 	static $cached = null;
 	if ( $cached !== null ) {
+		return $cached;
+	}
+
+	if ( ! VITE_DEV_ENABLED ) {
+		$cached = false;
 		return $cached;
 	}
 
@@ -47,11 +56,29 @@ function enqueue_vite_assets() {
 	}
 
 	$manifest = json_decode( file_get_contents( VITE_MANIFEST ), true );
-	if ( ! is_array( $manifest ) || empty( $manifest[ $entry ]['file'] ) ) {
+	if ( ! is_array( $manifest ) ) {
 		return;
 	}
 
-	$entry_data = $manifest[ $entry ];
+	$entry_data = $manifest[ $entry ] ?? null;
+	if ( ! is_array( $entry_data ) ) {
+		$entry_normalized = str_replace( '\\', '/', $entry );
+		foreach ( $manifest as $item ) {
+			if ( ! is_array( $item ) || empty( $item['src'] ) ) {
+				continue;
+			}
+
+			$src = str_replace( '\\', '/', (string) $item['src'] );
+			if ( $src === $entry_normalized || str_ends_with( $src, $entry_normalized ) ) {
+				$entry_data = $item;
+				break;
+			}
+		}
+	}
+
+	if ( ! is_array( $entry_data ) || empty( $entry_data['file'] ) ) {
+		return;
+	}
 	$entry_uri  = get_template_directory_uri() . '/dist/' . $entry_data['file'];
 
 	wp_enqueue_script_module( 'vite-main', $entry_uri, array(), false );

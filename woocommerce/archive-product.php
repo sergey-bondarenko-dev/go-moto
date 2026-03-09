@@ -19,13 +19,16 @@
 defined('ABSPATH') || exit;
 
 get_header('shop');
+
+$term_id = get_queried_object()->term_id ?? null;
+
 ?>
 <main id="primary" class="site-main">
 	<section class="page-title">
 		<div class="container">
 			<?php /* if ( function_exists('yoast_breadcrumb') ) { yoast_breadcrumb( '<div class="breadcrumbs">','</div>' ); } */ ?>
 			<h1>
-				<?php if (!empty($text = gomoto_get_term_meta( get_queried_object()->term_id, 'category-title'))): ?>
+				<?php if ($term_id && !empty($text = gomoto_get_term_meta( $term_id, 'category-title'))): ?>
 					<?= $text; ?>
 				<?php else: ?>
 					<?php wp_title(); ?>

@@ -116,7 +116,7 @@ if ( $rating_value && $rating_count ) {
 					<h2 class="section-title__title">Доступные мотоциклы</h2>
 				</div>
 
-				<ul class="products">
+				<ul class="products" style="margin-bottom: 4rem;">
 					<?php
 					$n        = 0;
 					$products = gomoto_get_the_post_meta( 'offers' );
@@ -152,13 +152,7 @@ if ( $rating_value && $rating_count ) {
 							<div class="last-short stm-base-background-color"></div>
 						</div>
 					</div>
-					<div class="rentprog-container is-loading" data-rentprog-container aria-busy="true">
-						<div class="rentprog-loader" role="status" aria-live="polite">
-							<div class="rentprog-spinner" aria-hidden="true"></div>
-							<div class="rentprog-loader__text">Загрузка формы...</div>
-						</div>
-						<?php echo do_shortcode( '[base_booking_form]' ); ?>
-					</div>
+					<?php echo do_shortcode( '[gomoto_booking_form]' ); ?>
 				</section>
 
 				<div class="section-title categories__title-wrapper">
@@ -255,46 +249,19 @@ if ( $rating_value && $rating_count ) {
 				<?php } ?>
 			</div>
 			<div class="section-content">
-				<div class="products columns-3">
-					<div class="swiper gear">
-						<div class="swiper-wrapper">
-							<?php
-							$products = gomoto_get_the_post_meta( 'offers-2' );
-							foreach ( $products as $prod ) {
-								$_product = wc_get_product( $prod['id'] );
-								?>
-								<div class="swiper-slide product type-product">
-									<?php
-									get_template_part(
-										'template-parts/product-card',
-										null,
-										[
-											'product_id' => $prod['id'],
-											'product' => $_product,
-											'title_class' => 'fs-22',
-											'excerpt_class' => 'fs-16',
-											'image_link_class' => '',
-										]
-									);
-									?>
-								</div>
-							<?php } ?>
-						</div>
-
-
-						<div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20"
-								viewBox="0 0 21 20" fill="none">
-								<path d="M16.9225 10.6609L7.26745 10.6609L11.0175 14.4109L9.83912 15.5893L4.07745 9.82758L9.83912 4.06592L11.0175 5.24425L7.26745 8.99425H16.9225V10.6609Z"
-										fill="#ff9800" />
-							</svg></div>
-						<div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="20"
-								viewBox="0 0 21 20" fill="none">
-								<path d="M4.07745 8.99425L13.7325 8.99425L9.98245 5.24425L11.1608 4.06592L16.9225 9.82758L11.1608 15.5893L9.98245 14.4109L13.7325 10.6609H4.07745L4.07745 8.99425Z"
-										fill="#ff9800" />
-							</svg></div>
-
-					</div>
-				</div>
+				<?php
+				$products = gomoto_get_the_post_meta( 'offers-2' );
+				get_template_part(
+					'template-parts/product-slider',
+					null,
+					[
+						'products' => $products,
+						'title_class' => 'fs-22',
+						'excerpt_class' => 'fs-16',
+						'image_link_class' => '',
+					]
+				);
+				?>
 			</div>
 		</div>
 	</section>
@@ -449,7 +416,11 @@ if ( $rating_value && $rating_count ) {
 									<div class="swiper-slide">
 										<div class="post-item">
 											<div class='post-item__image'>
-										<a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_post_thumbnail( 'full' ); ?></a>
+										<a href="<?php echo esc_url( get_permalink() ); ?>">
+											<?php the_post_thumbnail( [390, 390], [
+												'sizes' => '(min-width: 1240px) 390px, (min-width: 1024px) 33.33vw, (min-width: 768px) 50vw, 100vw',
+											] ); ?>
+										</a>
 											</div>
 											<h3 class="post-item__link">
 												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

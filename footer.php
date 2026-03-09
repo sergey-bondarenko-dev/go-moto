@@ -54,14 +54,6 @@
 <?php get_template_part( 'template-parts/scroll-top' ); ?>
 </div><!-- #page -->
 <?php wp_footer(); ?>
-<style>
-	@media screen and (max-width: 414px) {
-		.gear .product.swiper-slide {
-			width: calc(50% - 10px) !important;
-			max-width: 100% !important;
-		}
-	}
-</style>
 
 </body>
 

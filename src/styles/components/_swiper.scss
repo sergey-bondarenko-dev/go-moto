@@ -1,25 +1,9 @@
-/* Swiper */
-body .swiper {
-	height: 100%;
-}
-
-body .swiper-slide {
-	/* display: flex; */
-	height: initial;
-	width: auto;
-	/* flex-direction: column; */
-}
-
 body .swiper-pagination {
 	position: relative !important;
 	width: auto !important;
 	margin-right: 20px;
 	bottom: 0 !important;
 	white-space: nowrap;
-}
-
-body .swiper-slide div {
-	width: 100%;
 }
 
 div.swiper-button-prev:after,
@@ -80,8 +64,88 @@ div.swiper-button-prev:hover {
 	margin-right: 5px;
 }
 
-@media screen and (max-width: 1024px) {
-	body .swiper-slide div {
-		background-attachment: none;
+.swiper:not(.swiper-initialized) {
+	.swiper-button-prev,
+	.swiper-button-next {
+		display: none;
+	}
+}
+
+/* Product slider fallback before Swiper init */
+.swiper.products-slider:not(.swiper-initialized) {
+	.swiper-wrapper {
+		display: flex;
+		gap: 20px;
+		overflow: hidden;
+	}
+
+	.swiper-slide {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+@media screen and (min-width: 360px) {
+	.swiper.products-slider:not(.swiper-initialized) {
+		.swiper-slide {
+			flex-basis: calc(50% - 10px);
+			max-width: calc(50% - 10px);
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.swiper.products-slider:not(.swiper-initialized) {
+		.swiper-slide {
+			flex-basis: calc(33.3333% - 13.3333px);
+			max-width: calc(33.3333% - 13.3333px);
+		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.swiper.products-slider:not(.swiper-initialized) {
+		.swiper-slide {
+			flex-basis: calc(25% - 15px);
+			max-width: calc(25% - 15px);
+		}
+	}
+}
+
+/* Posts slider fallback before Swiper init */
+.swiper.posts:not(.swiper-initialized) {
+	.swiper-wrapper {
+		display: flex;
+		gap: 30px;
+		overflow: hidden;
+	}
+
+	.swiper-slide {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.swiper.posts:not(.swiper-initialized) {
+		.swiper-slide {
+			flex-basis: calc(50% - 15px);
+			max-width: calc(50% - 15px);
+		}
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.swiper.posts:not(.swiper-initialized) {
+		.swiper-slide {
+			flex-basis: calc(33.3333% - 20px);
+			max-width: calc(33.3333% - 20px);
+		}
+	}
+}
+
+.swiper.-paginate {
+	.swiper-slide {
+		width: auto;
 	}
 }

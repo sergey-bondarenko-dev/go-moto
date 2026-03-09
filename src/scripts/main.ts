@@ -1,4 +1,5 @@
 import '../styles/main.scss';
+import 'swiper/css';
 import { initMobileMenu } from './modules/menu';
 import { initScrollTop } from './modules/scroll-top';
 import { initRentprogWidget } from './modules/rentprog';

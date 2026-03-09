@@ -1,7 +1,6 @@
 import Swiper from 'swiper';
 import { Autoplay, FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
 
-import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -60,31 +59,16 @@ export function initSwipers(): void {
 		}
 	});
 
-	const gear = document.querySelector<HTMLElement>('.swiper.gear');
-	if (gear) {
-		const paginationEl = gear.querySelector<HTMLElement>('.swiper-pagination');
-		const nextEl = gear.querySelector<HTMLElement>('.swiper-button-next');
-		const prevEl = gear.querySelector<HTMLElement>('.swiper-button-prev');
+	const productSliders = document.querySelectorAll<HTMLElement>('.swiper.products-slider');
+	productSliders.forEach((slider) => {
+		const nextEl = slider.querySelector<HTMLElement>('.swiper-button-next');
+		const prevEl = slider.querySelector<HTMLElement>('.swiper-button-prev');
 
-		const modules = [Navigation];
-		const pagination =
-			paginationEl
-				? {
-						el: paginationEl,
-						clickable: true
-					}
-				: undefined;
-
-		if (pagination) {
-			modules.push(Pagination);
-		}
-
-		new Swiper(gear, {
-			modules,
-			slidesPerView: 2,
+		new Swiper(slider, {
+			modules: [Navigation],
+			slidesPerView: 1,
 			speed: 700,
 			spaceBetween: 20,
-			pagination,
 			navigation:
 				nextEl && prevEl
 					? {
@@ -93,12 +77,18 @@ export function initSwipers(): void {
 						}
 					: undefined,
 			breakpoints: {
+				360: {
+					slidesPerView: 2
+				},
 				768: {
+					slidesPerView: 3
+				},
+				1024: {
 					slidesPerView: 4
 				}
 			}
 		});
-	}
+	});
 
 	const posts = document.querySelector<HTMLElement>('.swiper.posts');
 	if (posts) {
@@ -117,7 +107,7 @@ export function initSwipers(): void {
 						}
 					: undefined,
 			breakpoints: {
-				320: {
+				360: {
 					centeredSlides: true,
 					slidesPerView: 1,
 					spaceBetween: 10
@@ -126,7 +116,7 @@ export function initSwipers(): void {
 					slidesPerView: 2,
 					spaceBetween: 20
 				},
-				1025: {
+				1024: {
 					slidesPerView: 3,
 					spaceBetween: 30
 				}
