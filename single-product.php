@@ -170,6 +170,30 @@ $product_type = gomoto_get_the_post_meta('product-type');
 							</div>
 							<div style="text-align: center; flex: 1 1 auto; margin-bottom: 1.5rem;"><a class="wp-block-button__link wp-element-button" style="max-width: 200px; margin: 0 auto;" href="#booking">Забронировать онлайн</a></div>
 
+							<?php if ($sounds = gomoto_get_motorcycle_sounds()): ?>
+								<div class="product__sounds my-3">
+									<?php foreach($sounds as $sound):
+										$sound_id = $sound['file_id'];
+										$sound_url = wp_get_attachment_url( $sound_id );
+										$sound_type = get_post_mime_type( $sound_id );
+										?>
+										<div class="product__sound">
+											<?php if ($sound_label = $sound['label']): ?>
+												<span><?= esc_html($sound['label']); ?></span>
+											<?php endif; ?>
+											<?php if ( $sound_url ) : ?>
+												<audio controls preload="none">
+													<source
+														src="<?php echo esc_url( $sound_url ); ?>"
+														type="<?php echo esc_attr( $sound_type ); ?>"
+													>
+												</audio>
+											<?php endif; ?>
+										</div>
+									<?php endforeach; ?>
+								</div>
+							<?php endif; ?>
+
 							<?php if ($options = gomoto_get_additional_options()): ?>
 								<ul class="product__additional-option-list my-3">
 									<?php foreach($options as $option): ?>
@@ -178,8 +202,8 @@ $product_type = gomoto_get_the_post_meta('product-type');
 										</li>
 									<?php endforeach; ?>
 								</ul>
-							<?php endif; ?>							
-
+							<?php endif; ?>
+							
 							<div class="product__content">
 								<?php the_content(); ?>
 							</div>

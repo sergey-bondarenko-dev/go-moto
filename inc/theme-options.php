@@ -384,7 +384,19 @@ function crb_attach_theme_options() {
 						<% if (option_name) { %>
 							<%- option_name %>
 						<% } %>
-					' )
+					' ),
+				Field::make_complex('sounds', 'Звуки')
+				->set_layout('tabbed-vertical')
+				->add_fields(array(
+					Field::make_text('sound_label', 'Название'),
+					Field::make_file('sound_file', 'Файл')
+						->set_type(array('audio')),
+				))
+				->set_header_template( '
+					<% if (sound_label) { %>
+						<%- sound_label %>
+					<% } %>
+				' )
 			),
 		);
 
@@ -452,6 +464,18 @@ function gomoto_get_additional_options() {
 	}
 
 	return array_map(fn($option) => $option['option_name'], $options);
+}
+
+function gomoto_get_motorcycle_sounds() {
+	$options = gomoto_get_the_post_meta('sounds', []);
+	if (!is_array($options)) {
+		return [];
+	}
+
+	return array_map(fn($option) => array(
+		'label' => $option['sound_label'],
+		'file_id' => $option['sound_file'],
+	), $options);
 }
 
 add_action(

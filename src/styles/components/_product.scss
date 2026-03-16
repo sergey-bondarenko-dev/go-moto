@@ -278,6 +278,26 @@ tr.woocommerce-product-attributes-item {
 		width: 100%;
 	}
 
+	&__sounds {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	&__sound {
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+
+		span {
+			font-size: var(--fs-18);
+		}
+
+		audio {
+			width: 100%;
+		}
+	}
+
 	@media (hover: none), (pointer: coarse) {
 		&__thumbnails {
 			display: flex;
@@ -310,6 +330,8 @@ tr.woocommerce-product-attributes-item {
 			display: flex;
 			aspect-ratio: 1;
 			position: relative;
+			gap: 4px;
+			overflow: visible;
 
 			&:not(:hover) {
 				.product__thumbnail {
@@ -335,6 +357,7 @@ tr.woocommerce-product-attributes-item {
 		&__thumbnail {
 			flex: 1 1 auto;
 			transition-duration: .3s;
+			
 
 			img {
 				visibility: hidden;

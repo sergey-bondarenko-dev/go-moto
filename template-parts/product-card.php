@@ -51,7 +51,7 @@ $image_ids = array_slice( array_values( array_unique( $image_ids ) ), 0, 6 );
 
 		<?php foreach ( $image_ids as $image_id ): ?>
 			<div class="product__thumbnail">
-				<?php echo wp_get_attachment_image( $image_id, [300, 300], false, [
+				<?php echo wp_get_attachment_image( $image_id, [500, 500], false, [
 					'sizes' => $sizes,
 				] ); ?>
 			</div>
