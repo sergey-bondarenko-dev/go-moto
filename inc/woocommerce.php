@@ -261,6 +261,33 @@ function gomoto_get_related_product_ids_by_category_tree( $product_id, $limit = 
 	return array_slice( array_values( array_unique( $related_ids ) ), 0, $limit );
 }
 
+function gomoto_get_children_cats($category_slug) {
+	$category_slug = (string) $category_slug;
+	if (!$category_slug) {
+		return array();
+	}
+
+	$cats = gomoto_get_product_cat_terms();
+	$category = $cats['by_slug'][$category_slug] ?? null;
+	if (!$category) {
+		return array();
+	}
+
+	$children_cats = array();
+	foreach ($cats['by_slug'] as $slug => $cat) {
+		if ($slug === $category_slug) {
+			continue;
+		}
+
+		$parent_id = (int) $cat->parent;
+		if ($parent_id === $category->term_id) {
+			$children_cats[] = $cat;
+		}
+	}
+
+	return $children_cats;
+}
+
 function theme_preload_product_main_image() {
 	if ( ! is_product() ) {
 		return;

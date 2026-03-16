@@ -174,7 +174,7 @@ $product_type = gomoto_get_the_post_meta('product-type');
 								<ul class="product__additional-option-list my-3">
 									<?php foreach($options as $option): ?>
 										<li class="product__additional-option-item">
-											<?= _e($option); ?>
+											<?= esc_html($option); ?>
 										</li>
 									<?php endforeach; ?>
 								</ul>

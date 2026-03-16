@@ -2,26 +2,37 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-<link rel="icon" href="https://gomoto.by/favicon_120x120.png" type="image/x-icon">
+	<link rel="icon" href="https://gomoto.by/favicon_120x120.png" type="image/x-icon">
 	<?php wp_head(); ?>
 
-	<script>var mlineObj = { "frontUrl": "<?php echo esc_url( home_url() ); ?>", "themeUrl": "<?php echo get_stylesheet_directory_uri(); ?>" };</script>
+	<script>
+		var mlineObj = {
+			"frontUrl": "<?php echo esc_url(home_url()); ?>",
+			"themeUrl": "<?php echo get_stylesheet_directory_uri(); ?>"
+		};
+	</script>
 
-	
-	
+
+
 
 	<!-- Yandex.Metrika counter -->
 	<script type="text/javascript">
-		(function (m, e, t, r, i, k, a) {
-			m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+		(function(m, e, t, r, i, k, a) {
+			m[i] = m[i] || function() {
+				(m[i].a = m[i].a || []).push(arguments)
+			};
 			m[i].l = 1 * new Date();
-			for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+			for (var j = 0; j < document.scripts.length; j++) {
+				if (document.scripts[j].src === r) {
+					return;
+				}
+			}
 			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
 		})
-			(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+		(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
 		ym(95280190, "init", {
 			clickmap: true,
@@ -33,15 +44,17 @@
 		<div><img src="https://mc.yandex.ru/watch/95280190" style="position:absolute; left:-9999px;" alt="" /></div>
 	</noscript>
 	<!-- /Yandex.Metrika counter -->
-	
+
 	<style>
 		.rentprog-container {
 			position: relative;
 			min-height: 320px;
 		}
-		.rentprog-container.is-loading > :not(.rentprog-loader) {
+
+		.rentprog-container.is-loading> :not(.rentprog-loader) {
 			visibility: hidden;
 		}
+
 		.rentprog-loader {
 			display: flex;
 			flex-direction: column;
@@ -51,6 +64,7 @@
 			padding: 24px;
 			text-align: center;
 		}
+
 		.rentprog-spinner {
 			width: 40px;
 			height: 40px;
@@ -59,19 +73,22 @@
 			border-radius: 50%;
 			animation: rentprog-spin 1s linear infinite;
 		}
-		.rentprog-container.is-loaded > .rentprog-loader {
+
+		.rentprog-container.is-loaded>.rentprog-loader {
 			display: none;
 		}
+
 		.rentprog-container.is-error .rentprog-loader__text {
 			color: #b00020;
 		}
+
 		@keyframes rentprog-spin {
 			to {
 				transform: rotate(360deg);
 			}
 		}
 	</style>
-	
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -114,7 +131,7 @@
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php echo gomoto_get_theme_option( 'address' ); ?>
+									<?php echo gomoto_get_theme_option('address'); ?>
 								</div>
 							</div>
 						</div>
@@ -131,7 +148,7 @@
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php echo gomoto_get_theme_option( 'scedule' ); ?>
+									<?php echo gomoto_get_theme_option('scedule'); ?>
 								</div>
 							</div>
 						</div>
@@ -148,9 +165,9 @@
 										</g>
 									</svg></div>
 								<div class="header-content-text">
-									<?php foreach ( gomoto_get_theme_option( 'phones' ) as $phone ) { ?>
+									<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
 										<a
-											href="tel:<?php echo preg_replace( '/[^0-9.]+/', '', $phone['phone'] ); ?>"><?php echo $phone['phone']; ?></a>
+											href="tel:<?php echo preg_replace('/[^0-9.]+/', '', $phone['phone']); ?>"><?php echo $phone['phone']; ?></a>
 									<?php } ?>
 								</div>
 							</div>
@@ -158,7 +175,7 @@
 						<div class="header-item flex ali-c jc-fe">
 							<div class="header-contact">
 								<div class="socials">
-									<?php foreach ( gomoto_get_socials( GOMOTO_SOCIALS_FILTER_ONLY_MESSENGERS ) as $social ) { ?>
+									<?php foreach (gomoto_get_socials(GOMOTO_SOCIALS_FILTER_ONLY_MESSENGERS) as $social) { ?>
 										<a href="<?php echo $social['link']; ?>"
 											target="_blank"><?php echo $social['icon']; ?></a>
 									<?php } ?>
@@ -186,7 +203,7 @@
 						</svg>
 					</button>
 				</div>
-				
+
 				<div class="mobile-nav">
 					<?php echo $gomoto_primary_menu; ?>
 				</div>
@@ -202,9 +219,9 @@
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php foreach ( gomoto_get_theme_option( 'phones' ) as $phone ) { ?>
+						<?php foreach (gomoto_get_theme_option('phones') as $phone) { ?>
 							<a
-								href="tel:<?php echo preg_replace( '/[^0-9.]+/', '', $phone['phone'] ); ?>"><?php echo $phone['phone']; ?></a>
+								href="tel:<?php echo preg_replace('/[^0-9.]+/', '', $phone['phone']); ?>"><?php echo $phone['phone']; ?></a>
 						<?php } ?>
 					</div>
 				</div>
@@ -219,7 +236,7 @@
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php echo gomoto_get_theme_option( 'address' ); ?>
+						<?php echo gomoto_get_theme_option('address'); ?>
 					</div>
 				</div>
 				<div class="header-contact">
@@ -234,17 +251,16 @@
 							</g>
 						</svg></div>
 					<div class="header-content-text">
-						<?php echo gomoto_get_theme_option( 'scedule' ); ?>
+						<?php echo gomoto_get_theme_option('scedule'); ?>
 					</div>
 				</div>
 
 				<div class="header-contact">
 					<div class="socials">
-						<?php foreach ( gomoto_get_theme_option( 'socials' ) as $social ) { ?>
+						<?php foreach (gomoto_get_theme_option('socials') as $social) { ?>
 							<a href="<?php echo $social['link']; ?>" target="_blank"><?php echo $social['icon']; ?></a>
 						<?php } ?>
 					</div>
 				</div>
 			</div>
 		</div>
-

@@ -4,6 +4,12 @@ import { initMobileMenu } from './modules/menu';
 import { initScrollTop } from './modules/scroll-top';
 import { initRentprogWidget } from './modules/rentprog';
 
+if (document.querySelector('[data-product-category-nav]')) {
+	import('./modules/product-category-filter').then(({ ProductCategoryFilter }) => {
+		ProductCategoryFilter.init();
+	});
+}
+
 if (document.querySelector('[data-fancybox]')) {
 	import('./modules/fancybox').then(({ initFancybox }) => {
 		initFancybox();
