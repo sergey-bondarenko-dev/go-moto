@@ -709,13 +709,15 @@ $product_type = gomoto_get_the_post_meta('product-type');
 
 
 	<?php
-	$related = $product->get_upsell_ids();
+	$is_motocycle = gomoto_product_has_category($product?->get_id(), 'motorcycles', true);
+
+	$related = gomoto_get_related_product_ids_by_category_tree( $product->get_id(), 4 );
 	if (!empty($related)) { ?>
 		<section class="related pb-60">
 			<div class="container">
 				<div class="section-title">
 					<h2 class="flex ali-c gap-10">
-						Похожие предложения
+						Похожие <?= $is_motocycle ? 'мотоциклы' : 'предложения' ?> 
 					</h2>
 				</div>
 				<div class="section-content">
