@@ -28,17 +28,6 @@ ul.products {
 	width: 100%;
 }
 
-.product>a {
-	display: block;
-	aspect-ratio: 1/1;
-}
-
-.product>a img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
 .woocommerce ul.products::after,
 .woocommerce ul.products::before {
 	content: none;
