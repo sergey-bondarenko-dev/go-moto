@@ -375,7 +375,17 @@ function crb_attach_theme_options() {
 				Field::make( 'text', 'prochee-2', 'КПП' ),
 				Field::make( 'text', 'prochee-3', 'Привод' ),
 				Field::make( 'text', 'prochee-4', 'Топливная система' ),
-			)
+				Field::make_complex('additional_options', 'Дополнительные опции')
+					->set_layout('tabbed-vertical')
+					->add_fields(array(
+						Field::make_text('option_name', 'Опция'),
+					))
+					->set_header_template( '
+						<% if (option_name) { %>
+							<%- option_name %>
+						<% } %>
+					' )
+			),
 		);
 
 	Container::make( 'term_meta', 'Custom Data' )
@@ -433,6 +443,15 @@ function gomoto_get_socials( string $filter = GOMOTO_SOCIALS_FILTER_ALL ): array
 	wp_cache_set( $cache_key, $socials, $cache_group, 0 );
 
 	return $socials;
+}
+
+function gomoto_get_additional_options() {
+	$options = gomoto_get_the_post_meta('additional_options', []);
+	if (!is_array($options)) {
+		return [];
+	}
+
+	return array_map(fn($option) => $option['option_name'], $options);
 }
 
 add_action(

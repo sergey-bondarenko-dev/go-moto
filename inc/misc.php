@@ -30,13 +30,3 @@ add_filter(
 	},
 	20
 );
-
-
-// $poster_id  = gomoto_get_the_post_meta('hero_poster');
-// $poster_src = wp_get_attachment_url($poster_id);
-
-// add_action('wp_head', function () use ($poster_src) {
-//   if (!empty($poster_src)) {
-//     echo '<link rel="preload" as="image" href="' . esc_url($poster_src) . '" fetchpriority="high">';
-//   }
-// }, 1);
