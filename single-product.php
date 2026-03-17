@@ -195,13 +195,16 @@ $product_type = gomoto_get_the_post_meta('product-type');
 							<?php endif; ?>
 
 							<?php if ($options = gomoto_get_additional_options()): ?>
-								<ul class="product__additional-option-list my-3">
-									<?php foreach($options as $option): ?>
-										<li class="product__additional-option-item">
-											<?= esc_html($option); ?>
-										</li>
-									<?php endforeach; ?>
-								</ul>
+								<div class="my-3">
+									<div class="h4 mb-2">Доп. опции</div>
+									<ul class="product__additional-option-list ">
+										<?php foreach($options as $option): ?>
+											<li class="product__additional-option-item">
+												<?= esc_html($option); ?>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
 							<?php endif; ?>
 							
 							<div class="product__content">
