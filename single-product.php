@@ -734,8 +734,9 @@ $product_type = gomoto_get_the_post_meta('product-type');
 
 	<?php
 	$is_motocycle = gomoto_product_has_category($product?->get_id(), 'motorcycles', true);
+	$related_limit = gomoto_get_related_limit();
 
-	$related = gomoto_get_related_product_ids_by_category_tree( $product->get_id(), 4 );
+	$related = gomoto_get_related_product_ids_by_category_tree( $product->get_id(), $related_limit );
 	if (!empty($related)) { ?>
 		<section class="related pb-60">
 			<div class="container">

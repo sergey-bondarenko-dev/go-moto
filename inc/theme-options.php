@@ -111,6 +111,16 @@ function crb_attach_theme_options() {
 				)
 				->set_header_template( '<%- percent %>%' ),
 			)
+		)
+		->add_tab(
+			'Прочее',
+			array(
+				Field::make_text(
+					'gomoto_related_limit', 
+					'Максимальное кол-во товаров, отображаемых в блок "Похожие предложения"'
+				)
+					->set_attribute('type', 'number'),
+			),
 		);
 
 	Container::make( 'post_meta', 'Custom Data' )
@@ -476,6 +486,10 @@ function gomoto_get_motorcycle_sounds() {
 		'label' => $option['sound_label'],
 		'file_id' => $option['sound_file'],
 	), $options);
+}
+
+function gomoto_get_related_limit() {
+	return (int) gomoto_get_theme_option('gomoto_related_limit', 1);
 }
 
 add_action(
