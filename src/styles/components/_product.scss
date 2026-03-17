@@ -323,6 +323,8 @@ tr.woocommerce-product-attributes-item {
 				object-fit: cover;
 			}
 		}
+
+		
 	}
 
 	@media (hover: hover) and (pointer: fine) {
@@ -402,6 +404,16 @@ tr.woocommerce-product-attributes-item {
 				object-fit: cover;
 				transition-duration: 0s;
 			}
+		}
+	}
+}
+
+@media (hover: none), (pointer: coarse) {
+	.swiper-initialized {
+		.product__thumbnail {
+			flex: 0 0 100%;
+			width: 100%;
+			height: 100%;
 		}
 	}
 }
