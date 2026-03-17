@@ -133,6 +133,23 @@ function gomoto_get_product_categories( $product_id ) {
 	return $cache[ $product_id ];
 }
 
+function gomoto_get_product_primary_category( $product_id ) {
+	$product_id = (int) $product_id;
+
+	if ( $product_id <= 0 ) {
+		return null;
+	}
+
+	$primary_term_id = (int) get_post_meta( $product_id, '_yoast_wpseo_primary_product_cat', true );
+	if ( $primary_term_id <= 0 ) {
+		return null;
+	}
+
+	$product_cat_terms = gomoto_get_product_cat_terms();
+
+	return $product_cat_terms['by_id'][ $primary_term_id ] ?? null;
+}
+
 function gomoto_product_has_category( $product_id, $category_slug, $include_children = false ) {
 	$product_id    = (int) $product_id;
 	$category_slug = (string) $category_slug;
@@ -185,76 +202,66 @@ function gomoto_get_related_product_ids_by_category_tree( $product_id, $limit = 
 	}
 
 	$terms             = gomoto_get_product_categories( $product_id );
-	$product_cat_terms = gomoto_get_product_cat_terms();
-	$terms_by_id       = $product_cat_terms['by_id'];
 
 	if ( empty( $terms ) ) {
 		return array();
 	}
 
-	$paths     = array();
-	$max_depth = 0;
+	$term_ids = array_values(
+		array_unique(
+			array_map(
+				static function ( $term ) {
+					return (int) $term->term_id;
+				},
+				$terms
+			)
+		)
+	);
 
-	foreach ( $terms as $term ) {
-		$path      = array( (int) $term->term_id );
-		$parent_id = (int) $term->parent;
+	$primary_term = gomoto_get_product_primary_category( $product_id );
 
-		while ( $parent_id && isset( $terms_by_id[ $parent_id ] ) ) {
-			$path[]    = $parent_id;
-			$parent_id = (int) $terms_by_id[ $parent_id ]->parent;
+	if ( $primary_term ) {
+		$primary_term_id = (int) $primary_term->term_id;
+		$primary_index   = array_search( $primary_term_id, $term_ids, true );
+
+		if ( $primary_index !== false ) {
+			unset( $term_ids[ $primary_index ] );
+			array_unshift( $term_ids, $primary_term_id );
 		}
-
-		$paths[]   = $path;
-		$max_depth = max( $max_depth, count( $path ) );
 	}
 
-	$related_ids        = array();
-	$processed_term_ids = array();
+	$related_ids = array();
 
-	for ( $level = 0; $level < $max_depth && count( $related_ids ) < $limit; $level++ ) {
-		foreach ( $paths as $path ) {
-			if ( ! isset( $path[ $level ] ) ) {
-				continue;
-			}
-
-			$term_id = (int) $path[ $level ];
-
-			if ( isset( $processed_term_ids[ $term_id ] ) ) {
-				continue;
-			}
-
-			$processed_term_ids[ $term_id ] = true;
-
-			$found_ids = get_posts(
-				array(
-					'post_type'           => 'product',
-					'post_status'         => 'publish',
-					'fields'              => 'ids',
-					'posts_per_page'      => $limit - count( $related_ids ),
-					'post__not_in'        => array_merge( array( $product_id ), $related_ids ),
-					'orderby'             => 'date',
-					'order'               => 'DESC',
-					'ignore_sticky_posts' => true,
-					'tax_query'           => array(
-						array(
-							'taxonomy'         => 'product_cat',
-							'field'            => 'term_id',
-							'terms'            => $term_id,
-							'include_children' => false,
-						),
+	foreach ( $term_ids as $term_id ) {
+		$found_ids = get_posts(
+			array(
+				'post_type'           => 'product',
+				'post_status'         => 'publish',
+				'fields'              => 'ids',
+				'posts_per_page'      => $limit - count( $related_ids ),
+				'post__not_in'        => array_merge( array( $product_id ), $related_ids ),
+				'orderby'             => 'date',
+				'order'               => 'DESC',
+				'ignore_sticky_posts' => true,
+				'tax_query'           => array(
+					array(
+						'taxonomy'         => 'product_cat',
+						'field'            => 'term_id',
+						'terms'            => (int) $term_id,
+						'include_children' => false,
 					),
-				)
-			);
+				),
+			)
+		);
 
-			if ( empty( $found_ids ) ) {
-				continue;
-			}
+		if ( empty( $found_ids ) ) {
+			continue;
+		}
 
-			$related_ids = array_merge( $related_ids, array_map( 'intval', $found_ids ) );
+		$related_ids = array_merge( $related_ids, array_map( 'intval', $found_ids ) );
 
-			if ( count( $related_ids ) >= $limit ) {
-				break;
-			}
+		if ( count( $related_ids ) >= $limit ) {
+			break;
 		}
 	}
 
