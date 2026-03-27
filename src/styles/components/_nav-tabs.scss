@@ -20,11 +20,18 @@
 .nav-tabs__select {
 	width: 100%;
 	min-height: 48px;
-	padding: 0 16px;
-	border: 1px solid var(--gray-e5);
-	background-color: var(--white);
-	color: var(--gray-1a);
+	padding: 0 48px 0 16px; /* справа место под иконку */
+	border: none;
+	background-color: rgb(239,68,68);
+	color: var(--white);
 	font-size: 16px;
+	border-radius: .375rem;
+	appearance: none;
+
+	background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7L10 12L15 7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: 20px;
 }
 
 .nav-tabs__link {
@@ -71,6 +78,8 @@
 	}
 
 	.nav-tabs__select-wrap {
-		display: block;
+		display: flex;
+		gap: 1rem;
+		align-items: center;
 	}
 }

@@ -134,7 +134,7 @@ if ($rating_value && $rating_count) {
 					<label class="nav-tabs__select-wrap">
 						<span class="screen-reader-text visually-hidden">Выберите категорию мотоциклов</span>
 						<select class="nav-tabs__select" data-product-category-select aria-label="Категория мотоциклов">
-							<option value="">Все</option>
+							<option value="">Сортировка по классу: Все</option>
 							<?php foreach ($motorcycle_terms as $term): ?>
 								<option value="<?= esc_attr($term->slug); ?>">
 									<?= esc_html($term->name); ?>
