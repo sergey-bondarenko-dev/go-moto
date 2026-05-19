@@ -42,8 +42,9 @@
 						if ( is_category() ) {
 							$current_cat_id = get_queried_object_id();
 						}
+						$all_categories_url = get_post_type_archive_link( 'post' );
 						?>
-						<a href="<?php echo get_post_type_archive_link( 'post' ); ?>"
+						<a href="<?php echo esc_url( $all_categories_url ); ?>"
 						class="nav-tabs__link <?php echo ! $current_cat_id ? 'is-active' : ''; ?>">
 							Все рубрики
 						</a>
@@ -63,11 +64,30 @@
 							}
 							$active = $current_cat_id === $cat->term_id ? 'is-active' : '';
 							?>
-							<a href="<?php echo get_category_link( $cat->term_id ); ?>"
-							class="nav-tabs__link <?php echo $active; ?>">
+							<a href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>"
+							class="nav-tabs__link <?php echo esc_attr( $active ); ?>">
 								<?php echo esc_html( $cat->name ); ?>
 							</a>
 						<?php endforeach; ?>
+
+						<label class="nav-tabs__select-wrap">
+							<span class="screen-reader-text visually-hidden">Выберите рубрику</span>
+							<select class="nav-tabs__select" data-nav-tabs-select aria-label="Рубрика">
+								<option value="<?php echo esc_url( $all_categories_url ); ?>" <?php selected( ! $current_cat_id ); ?>>
+									Все рубрики
+								</option>
+								<?php foreach ( $categories as $cat ) : ?>
+									<?php
+									if ( mb_strtolower( $cat->name ) === 'без рубрики' ) {
+										continue;
+									}
+									?>
+									<option value="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>" <?php selected( $current_cat_id, $cat->term_id ); ?>>
+										<?php echo esc_html( $cat->name ); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</label>
 					</nav>
 
 					<div class="posts">

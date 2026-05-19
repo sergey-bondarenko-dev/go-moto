@@ -4,6 +4,14 @@ import { initMobileMenu } from './modules/menu';
 import { initScrollTop } from './modules/scroll-top';
 import { initRentprogWidget } from './modules/rentprog';
 
+document.querySelectorAll<HTMLSelectElement>('[data-nav-tabs-select]').forEach((selectElement) => {
+	selectElement.addEventListener('change', () => {
+		if (selectElement.value) {
+			window.location.href = selectElement.value;
+		}
+	});
+});
+
 if (document.querySelector('[data-product-category-nav]')) {
 	import('./modules/product-category-filter').then(({ ProductCategoryFilter }) => {
 		ProductCategoryFilter.init();
