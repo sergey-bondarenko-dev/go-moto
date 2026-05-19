@@ -8,7 +8,7 @@ if ( ! defined( 'VITE_MANIFEST' ) ) {
 }
 
 if ( ! defined( 'VITE_DEV_ENABLED' ) ) {
-	define( 'VITE_DEV_ENABLED', true );
+	define( 'VITE_DEV_ENABLED', false );
 }
 
 function is_vite_dev(): bool {
